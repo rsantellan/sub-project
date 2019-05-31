@@ -1,0 +1,3 @@
+maith_common_translator:
+  resource: "@MaithCommonTranslatorBundle/Resources/config/routing.yml"
+  prefix:   /
