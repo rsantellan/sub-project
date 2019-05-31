@@ -2,11 +2,47 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Sociedad Uruguaya de Microbología{% endblock %}</title>
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <![endif]-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" class="color-switcher-link">
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}" />
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+        <![endif]-->
+        <div class="preloader">
+            <div class="preloader_image"></div>
+        </div>
+        <!-- wrappers for visual page editor and boxed version of template -->
+        <div id="canvas">
+            <div id="box_wrapper">
+                <!-- template sections -->
+                {{ include('default/_menu.html.twig') }}
+                {% block body %}{% endblock %}
+                {{ include('default/_footer.html.twig') }}
+            </div>
+            <!-- eof #box_wrapper -->
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="{{ asset('js/compressed.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/datepicker.js') }}"></script>
+        <script src="{{ asset('js/datepicker.en-US.js') }}"></script>
+        <script src="{{ asset('js/datepicker.es-ES.js') }}"></script>
+        <script src="{{ asset('js/vendor/modernizr-2.6.2.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

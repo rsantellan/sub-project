@@ -1,0 +1,94 @@
+.color-naranja{
+	background: #ec5c42;
+}
+a.a-footer{
+	color: #919899;
+	text-decoration: none;
+}
+	a.a-footer:hover{
+		color: #ec5c42;
+	}
+.sub_bg {
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/sub_bg.jpg);
+}
+.seccionales_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/seccionales_bg.jpg);
+}
+.socios_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/socios_bg.jpg);
+}
+.autoridades_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/autoridades_bg.jpg);
+}
+.eventos_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/eventos_bg.jpg);
+}
+.becas_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/becas_bg.jpg);
+}
+.contacto_bg{
+	background-size: cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(../images/contacto_bg.jpg);
+}
+
+ul.listados{
+	padding-left: 0;
+}
+ul.listados li{
+	list-style-type: none;
+	padding-bottom: 15px;
+}
+	ul.listados li > i{
+		padding-right: 5px;
+		color: #80ca8d;
+		float: left;
+		padding-top: 5px;
+	}
+#timetable th.categoria, #timetable td.categoria{
+	text-align: left;
+	}
+#timetable td{
+	font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+	}
+#timetable th{
+	font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+	}
+h4 span{
+	color: #80ca8d;
+}
+.input-placeholder{
+	position: absolute;
+	left: 30px;
+	top: 12px;
+}

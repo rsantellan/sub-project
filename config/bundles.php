@@ -14,4 +14,9 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
+    Maith\Common\AdminBundle\MaithCommonAdminBundle::class => ['all' => true],
+    Maith\Common\ImageBundle\MaithCommonImageBundle::class => ['all' => true],
+    Maith\Common\TranslatorBundle\MaithCommonTranslatorBundle::class => ['all' => true],
+    Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
+    FOS\UserBundle\FOSUserBundle::class => ['all' => true],
 ];

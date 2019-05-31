@@ -1,0 +1,39 @@
+<section class="page_toplogo table_section table_section_md ls section_padding_top_25 section_padding_bottom_25">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center text-md-left">
+                <a href="{{ path('homepage') }}" class="logo top_logo"><img src="{{ asset('images/logo.png') }}" alt=""></a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<header class="page_header header_color toggler_left">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 display_table">
+                <div class="header_mainmenu display_table_cell">
+                    <!-- main nav start -->
+                    <nav class="mainmenu_wrapper">
+                        <ul class="mainmenu nav sf-menu">
+                            <li> <a href="index.php" class="{% if menu is defined and menu == "inicio" %}current{% endif %}">Inicio</a></li>
+                            <li> <a href="sub.php" >¿Qué es la SUB?</a></li>
+                            <li> <a href="seccionales.php" >Seccionales</a></li>
+                            <li> <a href="socios.php">Socios</a></li>
+                            <li> <a href="autoridades.php" >Autoridades</a></li>
+                            <li> <a href="http://biociencias2019.uy/" target="blank" >Congreso</a></li>
+                            <li> <a href="eventos.php" >Eventos</a></li>
+                            <li> <a href="noticias.php">Noticias</a></li>
+                            <li> <a href="becas.php" >Becas</a></li>
+                            <li> <a href="contacto.php">Contacto</a></li>
+                            <!-- eof contacts -->
+                        </ul>
+                    </nav>
+                    <!-- eof main nav -->
+                    <!-- header toggler --><span class="toggle_menu"><span></span></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
