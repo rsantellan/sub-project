@@ -1,0 +1,55 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}News index{% endblock %}
+
+{% block body %}
+    <section class="panel panel-color">
+        <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Noticias</header>
+        <div class="panel-body">
+            <div class="table-responsive no-border">
+                <table class="table table-bordered table-striped mg-t datatable dataTable">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Slug</th>
+                        <th>Created_at</th>
+                        <th>Updated_at</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for news in news %}
+                        <tr>
+                            <td>{{ news.id }}</td>
+                            <td>{{ news.title }}</td>
+                            <td>{{ news.Description }}</td>
+                            <td>{{ news.slug }}</td>
+                            <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ news.updatedAt ? news.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('news_edit', { 'id': news.id }) }}" class="btn btn-success">Editar</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <ul>
+                    <li>
+                        <a href="{{ path('news_new') }}" class="btn btn-info">Crear</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}
