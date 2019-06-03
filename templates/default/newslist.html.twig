@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="ls section_padding_top_130 section_padding_bottom_130 columns_padding_25">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-push-1">
+                    {% for object_new in newslist %}
+                        {% if mediaData[object_new.id] is defined%}
+                            {% if object_new.type == 2 %}
+                                <article class="post format-small-image">
+                                    <div class="side-item side-md content-padding big-padding with_border rounded">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="item-media entry-thumbnail top_rounded overflow_hidden">
+                                                    <img src="{{ object_new.id | mAvatar(object_new.fullClassName, 'principal') | mImage(395, 395, 'rce') }}" width="395" height="395" alt="{{ object_new.title }}" />
+                                                    <div class="media-links color2">
+                                                        <a href="{{ path('shownew', {'slug': object_new.slug}) }}" class="abs-link"></a>
+                                                    </div>
+                                                    <div class="entry-meta-corner main_bg_color2">
+                                                        <span class="date">{{ object_new.day }}</span>
+                                                        <span class="small-text">{{ object_new.month }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="item-content">
+                                                    <header class="entry-header">
+                                                        <h4 class="entry-title ">
+                                                            <a href="{{ path('shownew', {'slug': object_new.slug}) }}" rel="bookmark">{{ object_new.title }}</a>
+                                                        </h4>
+                                                    </header>
+                                                    <div class="entry-content">
+                                                        <p>{{ object_new.Description | raw }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% else  %}
+                                <article class="vertical-item content-padding big-padding with_border rounded post {% if mediaData[object_new.id].isOnlineVideo %}format-video{% else %}format-standard{% endif %}">
+                                    <div class="item-media entry-thumbnail top_rounded overflow_hidden {% if not mediaData[object_new.id].isOnlineVideo %}bottommargin_30{% endif %}">
+                                        {%  if mediaData[object_new.id].isOnlineVideo %}
+                                            <div class="embed-responsive embed-responsive-3by2 top_rounded overflow_hidden">
+                                                <a href="{{ mediaData[object_new.id].onlineVideoPlayer }}" class="embed-placeholder">
+                                                    <img src="{{ object_new.id | mAvatar(object_new.fullClassName, 'principal') | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object_new.title }}" />
+                                                </a>
+                                            </div>
+                                        {%  else  %}
+                                            <img src="{{ object_new.id | mAvatar(object_new.fullClassName, 'principal') | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object_new.title }}" />
+                                        {%  endif %}
+                                        {%  if not mediaData[object_new.id].isOnlineVideo %}
+                                            <div class="media-links color3">
+                                                <a href="{{ path('shownew', {'slug': object_new.slug}) }}" class="abs-link"></a>
+                                            </div>
+                                        {% endif %}
+                                        <div class="entry-meta-corner main_bg_color">
+                                            <span class="date">{{ object_new.day }}</span>
+                                            <span class="small-text">{{ object_new.month }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <header class="entry-header">
+                                            <h4 class="entry-title">
+                                                <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.title }}</a>
+                                            </h4>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p>{{ object_new.Description | raw }}</p>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endif %}
+                        {% else %}
+                            <article class="vertical-item content-padding big-padding after_cover rounded with_border post format-quote ">
+                                <div class="entry-meta-corner main_bg_color">
+                                    <span class="date">{{ object_new.day }}</span>
+                                    <span class="small-text">{{ object_new.month }}</span>
+                                </div>
+                                <div class="item-content entry-content text-center">
+                                    <header class="entry-header">
+                                        <h4 class="entry-title hover-color3">
+                                            <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.title }}</a>
+                                        </h4>
+                                    </header>
+                                    <!-- .entry-header -->
+                                    <div class="entry-content">
+                                        <p>{{ object_new.Description | raw }}</p>
+                                    </div>
+                                    <!-- .entry-content -->
+                                </div>
+                                <!-- eof .item-content -->
+                            </article>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if newslist.haveToPaginate %}
+                        <div class="text-center topmargin_60">
+                            {{ pagerfanta(newslist, 'my_template', {routeName: 'newslist_paginated', routeParams: app.request.query.all}) }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

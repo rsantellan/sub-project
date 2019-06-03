@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\News;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,6 +23,12 @@ class NewsType extends AbstractType
             ])
             ->add('body', TextareaType::class, [
                 'required' => true
+            ])
+            ->add('type', ChoiceType::class, [
+                'choices' => [
+                    'Imagen Superior' => News::FULL_NEW,
+                    'Imagen lateral' => News::SIDE_NEW
+                ]
             ])
             //->add('slug')
             //->add('created_at')

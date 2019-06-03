@@ -1,4 +1,26 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr' : { 'role' : 'form'} }) }}
+<div class="form-group">
+    {{ form_errors(form.title) }}
+    <label for="{{ form.title.vars.id }}">Titulo</label>
+    {{ form_widget(form.title, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_errors(form.type) }}
+    <label for="{{ form.type.vars.id }}">Tipo</label>
+    {{ form_widget(form.type, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_errors(form.Description) }}
+    <label for="{{ form.Description.vars.id }}">Descripción</label>
+    {{ form_widget(form.Description, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_errors(form.body) }}
+    <label for="{{ form.body.vars.id }}">Cuerpo</label>
+    {{ form_widget(form.body, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+{{ form_rest(form) }}
+<div class="form-group">
+    <button type="submit" class="btn btn-default"><i class="fa fa-save"></i>Guardar</button>
+</div>
 {{ form_end(form) }}

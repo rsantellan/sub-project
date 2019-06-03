@@ -1,7 +1,6 @@
 {% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
 
 {% block title %}News index{% endblock %}
-
 {% block body %}
     <section class="panel panel-color">
         <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Noticias</header>
@@ -11,27 +10,29 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Imagen</th>
                         <th>Title</th>
-                        <th>Description</th>
-                        <th>Slug</th>
+                        <th>Url</th>
                         <th>Created_at</th>
                         <th>Updated_at</th>
                         <th>actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for news in news %}
+                    {% for object_new in news %}
                         <tr>
-                            <td>{{ news.id }}</td>
-                            <td>{{ news.title }}</td>
-                            <td>{{ news.Description }}</td>
-                            <td>{{ news.slug }}</td>
-                            <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                            <td>{{ news.updatedAt ? news.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ object_new.id }}</td>
+                            <td class="text-center">
+                                <img src="{{ object_new.id | mAvatar(object_new.fullClassName, 'principal') | mImage(150, 150, 'rce') }}" width="150" height="150" alt="{{ object_new.id }}" />
+                            </td>
+                            <td>{{ object_new.title }}</td>
+                            <td>{{ object_new.slug }}</td>
+                            <td>{{ object_new.createdAt ? object_new.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ object_new.updatedAt ? object_new.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('news_edit', { 'id': news.id }) }}" class="btn btn-success">Editar</a>
+                                        <a href="{{ path('news_edit', { 'id': object_new.id }) }}" class="btn btn-success">Editar</a>
                                     </li>
                                 </ul>
                             </td>
@@ -43,6 +44,12 @@
                     {% endfor %}
                     </tbody>
                 </table>
+
+                {% if news.haveToPaginate %}
+                    <div class="navigation text-center">
+                        {{ pagerfanta(news, 'twitter_bootstrap3_translated', {routeName: 'news_paginated', routeParams: app.request.query.all}) }}
+                    </div>
+                {% endif %}
 
                 <ul>
                     <li>

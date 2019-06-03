@@ -1,11 +1,26 @@
 {% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
 
-{% block title %}New News{% endblock %}
+{% block title %}Crear Noticia{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/maithcommonadmin/js/ckeditor/ckeditor.js') }}"></script>
+    {{ include('MaithCommonAdminBundle:Wyswyg:_addJsInitializerTextAreas.html.twig') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new News</h1>
-
-    {{ include('news/_form.html.twig') }}
-
-    <a href="{{ path('news_index') }}">back to list</a>
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel panel-color">
+                <header class="panel-heading text-uppercase"><i class="fa fa-pencil-square-o"></i>Crear Noticia</header>
+                <div class="panel-body">
+                    {{ include('news/_form.html.twig') }}
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-8">
+            <a href="{{ path('news_index') }}" class="btn btn-success" style="float: left; margin: 0!important;">
+                <i class="fa fa-arrow-left"></i>Volver al listado
+            </a>
+        </div>
+    </div>
 {% endblock %}

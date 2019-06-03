@@ -8,8 +8,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NewsRepository")
  */
-class News
+class News implements \Maith\Common\AdminBundle\Interfaces\EntityMediaInterface
 {
+    const FULL_NEW = 1;
+    const SIDE_NEW = 2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -49,6 +52,11 @@ class News
      * @ORM\Column(type="datetime", name="updated_at", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $type = 1;
 
     public function getId(): ?int
     {
@@ -125,5 +133,99 @@ class News
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullClassName(): string
+    {
+        return News::class;
+    }
+
+    /**
+     * @return array
+     */
+    public function retrieveAlbums()
+    {
+        return ["principal"];
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkAlbumForOnlineVideo(): bool
+    {
+        return true;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(?int $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDay() : string
+    {
+        return $this->getUpdatedAt()->format('d');
+    }
+
+    /**
+     * @return string
+     */
+    public function getMonth() : string
+    {
+        $month = $this->getUpdatedAt()->format('n');
+        switch ($month){
+            case 1:
+                return "Ene";
+                break;
+            case 2:
+                return "Feb";
+                break;
+            case 3:
+                return "Mar";
+                break;
+            case 4:
+                return "Abr";
+                break;
+            case 5:
+                return "May";
+                break;
+            case 6:
+                return "Jun";
+                break;
+            case 7:
+                return "Jul";
+                break;
+            case 8:
+                return "Ago";
+                break;
+            case 9:
+                return "Sep";
+                break;
+            case 10:
+                return "Oct";
+                break;
+            case 11:
+                return "Nov";
+                break;
+            case 12:
+                return "Dic";
+                break;
+            default:
+                return "";
+                break;
+
+        }
     }
 }

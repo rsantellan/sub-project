@@ -5,6 +5,9 @@ namespace App\Repository;
 use App\Entity\News;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\Query;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * @method News|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +20,33 @@ class NewsRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, News::class);
+    }
+
+    private function createPaginator(Query $query, int $page, int $maxPerPage = 10): Pagerfanta
+    {
+        $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
+        $paginator->setMaxPerPage($maxPerPage);
+        $paginator->setCurrentPage($page);
+
+        return $paginator;
+    }
+
+    public function findLatest(int $page, int $maxPerPage = 10) : Pagerfanta
+    {
+        $qb = $this->createQueryBuilder('n')
+                ->addSelect('n')
+                ->orderBy('n.updatedAt', 'DESC');
+        return $this->createPaginator($qb->getQuery(), $page, $maxPerPage);
+    }
+
+    public function findOneBySlug($slug): ?News
+    {
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
 
     // /**

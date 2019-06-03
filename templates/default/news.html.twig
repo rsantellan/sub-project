@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="ls section_padding_top_130 section_padding_bottom_130 columns_padding_25">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article class="single-post vertical-item content-padding big-padding rounded post">
+                        <div class="entry-thumbnail item-media top_rounded">
+                            {% if avatar is defined %}
+                                <img src="{{ avatar.fullPath | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object.title }}" />
+                            {% else %}
+                                <img src="{{ object.id | mAvatar(object.fullClassName, 'principal') | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object.title }}" />
+                            {% endif %}
+                            <div class="entry-meta-corner main_bg_color2">
+                                <span class="date">{{ object.day }}</span>
+                                <span class="small-text">{{ object.month }}</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <header class="entry-header">
+                                <h1 class="entry-title topmargin_0">{{ object.title }}</h1>
+                            </header>
+                            <!-- .entry-header -->
+                            <div class="entry-content">
+                                {{ object.body | raw }}
+                            </div>
+                            <!-- .entry-content -->
+                        </div>
+                        <!-- .item-content -->
+                    </article>
+                    <section class="ls page_portfolio section_padding_top_50 section_padding_bottom_100">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20" data-filters=".isotope_filters">
+                                        {% for file in files %}
+                                        <div class="isotope-item col-lg-4 col-md-6 col-sm-12 medical">
+                                            <div class="vertical-item gallery-item content-absolute text-center ds">
+                                                <div class="item-media">
+                                                    {% set imageUrl = file.fullPath | mImage(1170, 780, 'rce') %}
+                                                    <img src="{{ imageUrl }}" width="1170" height="780" alt="{{ object.title }}" />
+                                                    <div class="media-links">
+                                                        <div class="links-wrap">
+                                                            <a class="p-view prettyPhoto " title="{{ object.title }}" data-gal="prettyPhoto[gal]" href="{{ imageUrl }}"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-content">
+                                                    <h4> <a href="javascript:void(0)">{{ file.showName }}</a> </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--eof .col-sm-8 (main content)-->
+            </div>
+        </div>
+    </section>
+{% endblock %}

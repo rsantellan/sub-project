@@ -16,12 +16,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     /**
-     * @Route("/", name="news_index", methods={"GET"})
+     * @Route("/", defaults={"page": "1"}, name="news_index", methods={"GET"})
+     * @Route("/news/{page<[1-9]\d*>}", methods={"GET"}, name="news_paginated")
      */
-    public function index(NewsRepository $newsRepository): Response
+    public function index(NewsRepository $newsRepository, int $page): Response
     {
+
         return $this->render('news/index.html.twig', [
-            'news' => $newsRepository->findAll(),
+            'news' => $newsRepository->findLatest($page, 10),
+            'activemenu' => 'news',
         ]);
     }
 
@@ -39,12 +42,15 @@ class NewsController extends AbstractController
             $entityManager->persist($news);
             $entityManager->flush();
 
-            return $this->redirectToRoute('news_index');
+            return $this->redirectToRoute('news_edit', [
+                'id' => $news->getId(),
+            ]);
         }
 
         return $this->render('news/new.html.twig', [
             'news' => $news,
             'form' => $form->createView(),
+            'activemenu' => 'news',
         ]);
     }
 
@@ -59,7 +65,7 @@ class NewsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('news_index', [
+            return $this->redirectToRoute('news_edit', [
                 'id' => $news->getId(),
             ]);
         }
@@ -67,6 +73,7 @@ class NewsController extends AbstractController
         return $this->render('news/edit.html.twig', [
             'news' => $news,
             'form' => $form->createView(),
+            'activemenu' => 'news',
         ]);
     }
 
