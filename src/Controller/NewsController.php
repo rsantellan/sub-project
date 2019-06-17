@@ -56,6 +56,9 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="news_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param News $news
+     * @return Response
      */
     public function edit(Request $request, News $news): Response
     {

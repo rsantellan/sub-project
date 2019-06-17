@@ -114,6 +114,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "jms/translation-bundle": {
+        "version": "1.4.4"
+    },
     "monolog/monolog": {
         "version": "1.24.0"
     },
@@ -151,6 +154,9 @@
         "version": "dev-master"
     },
     "rsantellan/maith-image": {
+        "version": "dev-master"
+    },
+    "rsantellan/maith-translator": {
         "version": "dev-master"
     },
     "sensio/framework-extra-bundle": {
@@ -207,6 +213,9 @@
             "bin/console",
             "config/bootstrap.php"
         ]
+    },
+    "symfony/contracts": {
+        "version": "v1.1.0"
     },
     "symfony/css-selector": {
         "version": "v4.3.0"

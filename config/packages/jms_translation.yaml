@@ -1,0 +1,8 @@
+jms_translation:
+  locales: ['es']
+  source_language: 'en'
+  configs:
+    app:
+      dirs: ["%kernel.project_dir%/templates"]
+      output_dir: "%kernel.project_dir%/translations"
+      excluded_dirs: ["cache", "data", "logs", "%kernel.project_dir%/templates/bundles"]
