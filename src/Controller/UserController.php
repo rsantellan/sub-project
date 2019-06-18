@@ -70,7 +70,9 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $userManager->updateUser($user, false);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('admin_users_edit', array('id' => $user->getId()));
         }
         return $this->render('user/edit.html.twig', [
             'form' => $form->createView(),
@@ -91,13 +93,12 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
             $newUser = $userManager->createUser();
-            $newUser->setUsername($data['email']);
-            $newUser->setEmail($data['email']);
-            $newUser->setPlainPassword('sub_admin');
+            $newUser->setUsername($user->getEmail());
+            $newUser->setEmail($user->getEmail());
+            $newUser->setPlainPassword('sub.usuario');
             $newUser->setEnabled(true);
-            $newUser->setUserRoles($data['userRoles']->toArray());
+            $newUser->setUserRoles($user->getUserRoles());
             $userManager->updateUser($newUser, false);
             $this->getDoctrine()->getManager()->flush();
 

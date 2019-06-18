@@ -208,9 +208,6 @@
     "symfony/cache": {
         "version": "v4.3.0"
     },
-    "symfony/cache-contracts": {
-        "version": "v1.1.1"
-    },
     "symfony/config": {
         "version": "v4.3.0"
     },
@@ -263,9 +260,6 @@
     "symfony/event-dispatcher": {
         "version": "v4.3.0"
     },
-    "symfony/event-dispatcher-contracts": {
-        "version": "v1.1.1"
-    },
     "symfony/expression-language": {
         "version": "v4.3.0"
     },
@@ -311,9 +305,6 @@
     },
     "symfony/http-client": {
         "version": "v4.3.0"
-    },
-    "symfony/http-client-contracts": {
-        "version": "v1.1.1"
     },
     "symfony/http-foundation": {
         "version": "v4.3.0"
@@ -452,9 +443,6 @@
     },
     "symfony/serializer-pack": {
         "version": "v1.0.2"
-    },
-    "symfony/service-contracts": {
-        "version": "v1.1.2"
     },
     "symfony/stopwatch": {
         "version": "v4.3.0"
