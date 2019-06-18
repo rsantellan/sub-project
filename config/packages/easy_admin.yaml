@@ -1,5 +1,31 @@
-#easy_admin:
-#    entities:
+easy_admin:
+    site_name: 'SUB'
+    user:
+        display_name: true
+    entities:
+        User:
+            class: App\Entity\User
+            list:
+                fields: ['id', 'username', 'email', 'enabled', 'lastLogin']
+            form:
+                fields:
+                    - username
+                    - email
+                    - lastLogin
+                    - userRoles
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+
+        Noticias:
+            class: App\Entity\News
+            list:
+                fields: ['id', 'title', 'slug', 'createdAt', 'updatedAt', 'typeOption']
+                sort: ['updatedAt', 'DESC']
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'description', css_class: 'input-large' }
+                    - { property: 'body', css_class: 'input-large' }
+                    - { property: 'type', css_class: 'input-large' }
 #        # List the entity class name you want to manage
 #        - App\Entity\Product
 #        - App\Entity\Category

@@ -228,4 +228,17 @@ class News implements \Maith\Common\AdminBundle\Interfaces\EntityMediaInterface
 
         }
     }
+
+    public function getTypeOption()
+    {
+        switch ($this->getType()){
+            case News::FULL_NEW:
+                return 'Imagen Superior';
+                break;
+            case News::SIDE_NEW:
+                return 'Imagen lateral';
+                break;
+        }
+        return "";
+    }
 }

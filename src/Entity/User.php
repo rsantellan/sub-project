@@ -28,9 +28,10 @@ class User extends BaseUser
      */
     protected $userRoles;
 
-    private $superAdmin;
 
-    private $group;
+    private $superAdmin = false;
+
+    private $group = false;
 
     /**
      * User constructor.
