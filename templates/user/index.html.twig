@@ -28,7 +28,13 @@
                                 {% if user.enabled %}Activo{% else %}Inactivo{% endif %}
                             </td>
                             <td>{{ user.lastLogin | date('d/m/Y') }}</td>
-                            <td>{{ user.showRolesDescriptions }}</td>
+                            <td>
+                                <ul>
+                                    {% for role in user.roles %}
+                                    <li>{{ role }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
                             <td>
                                 {% if user.enabled %}
                                     <form action="{{ path('admin_users_deactivate', { 'id': user.id }) }}" method="POST" onsubmit="return confirm('¿Esta seguro de desactivar el usuario?')">

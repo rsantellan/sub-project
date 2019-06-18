@@ -66,7 +66,7 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user, \FOS\UserBundle\Model\UserManagerInterface $userManager)
     {
-        $form = $this->createForm(UserType::class);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
