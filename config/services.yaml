@@ -51,3 +51,9 @@ services:
         arguments:
             $configFactory: '@jms_translation.config_factory'
             $updater: '@jms_translation.updater'
+
+    Maith\Common\TranslatorBundle\Controller\DefaultController:
+        public: true
+        arguments:
+            $configFactory: '@jms_translation.config_factory'
+            $loader: '@jms_translation.loader_manager'

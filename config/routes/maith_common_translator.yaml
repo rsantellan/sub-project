@@ -1,3 +1,7 @@
 maith_common_translator:
-  resource: "@MaithCommonTranslatorBundle/Resources/config/routing.yml"
-  prefix:   /
+  resource: "@MaithCommonTranslatorBundle/Controller/"
+  type:     annotation
+  prefix:   /admin/translations
+  #
+  #resource: "@MaithCommonTranslatorBundle/Resources/config/routing.yml"
+  #prefix:   /
