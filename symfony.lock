@@ -96,9 +96,6 @@
     "egulias/email-validator": {
         "version": "2.1.8"
     },
-    "facebook/webdriver": {
-        "version": "1.6.0"
-    },
     "fig/link-util": {
         "version": "1.0.0"
     },
@@ -195,6 +192,9 @@
     "symfony/cache": {
         "version": "v4.3.0"
     },
+    "symfony/cache-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/config": {
         "version": "v4.3.0"
     },
@@ -247,6 +247,9 @@
     "symfony/event-dispatcher": {
         "version": "v4.3.0"
     },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/expression-language": {
         "version": "v4.3.0"
     },
@@ -292,6 +295,9 @@
     },
     "symfony/http-client": {
         "version": "v4.3.0"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/http-foundation": {
         "version": "v4.3.0"
@@ -339,9 +345,6 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.6"
-    },
-    "symfony/panther": {
-        "version": "v0.3.0"
     },
     "symfony/phpunit-bridge": {
         "version": "4.3",
@@ -430,6 +433,9 @@
     },
     "symfony/serializer-pack": {
         "version": "v1.0.2"
+    },
+    "symfony/service-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/stopwatch": {
         "version": "v4.3.0"

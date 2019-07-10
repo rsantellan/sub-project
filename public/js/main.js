@@ -451,6 +451,7 @@ function windowLoadInit() {
 	/////////////////////////////////////////////////
 
 	//contact form processing
+	/* WILL NOT BE USING THIS
 	jQuery('form.contact-form').on('submit', function( e ){
 		e.preventDefault();
 		var $form = jQuery(this);
@@ -488,7 +489,7 @@ function windowLoadInit() {
 			jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">Mail cannot be sent. You need PHP server to send mail.</span>');
 		})
 	});
-
+	*/
 
 	//search modal
 	jQuery(".search_modal_button").on('click', function(e){

@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
+use Maith\Common\AdminBundle\Services\MaithParametersService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\NewsRepository;
 use Maith\Common\AdminBundle\Repository\mAlbumRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends AbstractController
 {
@@ -80,5 +83,81 @@ class DefaultController extends AbstractController
             'avatar' => $avatar,
             'files' => $files,
         ]);
+    }
+
+    /**
+     * @Route("/contacto.html", name="contactForm")
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     * @param MaithParametersService $maithParametersService
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function contactForm(Request $request, \Swift_Mailer $mailer, MaithParametersService $maithParametersService)
+    {
+        $form = $this->createForm(ContactType::class,null,array(
+            // To set the action use $this->generateUrl('route_identifier')
+            'action' => $this->generateUrl('contactForm'),
+            'method' => 'POST'
+        ));
+        $message = null;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            if (empty($data['lastname'])) {
+                $this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $message = "Mensaje enviado correctamente";
+            } else {
+                $message = "Ocurrio un error al enviar el mail.";
+            }
+        }
+        return $this->render('default/contact.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'contact',
+            'form' => $form->createView(),
+            'message' => $message,
+        ]);
+    }
+
+    /**
+     * @param MaithParametersService $maithParametersService
+     * @param \Swift_Mailer $mailer
+     * @param $name
+     * @param $subject
+     * @param $email
+     * @param $message
+     * @return int
+     */
+    private function sendEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $name, $subject, $email, $message)
+    {
+        $from = [$maithParametersService->getParameter('contact-email-from') => $maithParametersService->getParameter('contact-email-from-name')];
+        $message = (new \Swift_Message($maithParametersService->getParameter('contact-email-subject')))
+            ->setFrom($from)
+            ->setTo($maithParametersService->getParameter('contact-email-to'))
+            ->setReplyTo($email)
+            ->setBody(
+                $this->renderView(
+                    'emails/contact.html.twig',
+                    [
+                        'name' => $name,
+                        'subject' => $subject,
+                        'email' => $email,
+                        'message' => $message,
+                    ]
+                ),
+                'text/html'
+            )
+            /*
+             * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'emails/registration.txt.twig',
+                    ['name' => $name]
+                ),
+                'text/plain'
+            )
+            */
+        ;
+
+        return $mailer->send($message);
     }
 }

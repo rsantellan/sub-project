@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 contacto_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}contact.titulo{% endtrans %}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_100 section_padding_bottom_75">
+        <div class="container">
+            <div class="row topmargin_40">
+                <div class="col-sm-4 to_animate" data-animation="pullDown">
+                    <div class="teaser text-center">
+                        <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-phone5"></i> </div>
+                        <p>{% trans %}contact.celular{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 to_animate" data-animation="pullDown">
+                    <div class="teaser text-center">
+                        <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-location2"></i> </div>
+                        <p>{% trans %}contact.ubicacion{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 to_animate" data-animation="pullDown">
+                    <div class="teaser text-center">
+                        <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-mail"></i> </div>
+                        <p>{% trans %}contact.email.display{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row topmargin_40">
+                <div class="col-sm-12 to_animate">
+                    {%  if message is not null  %}
+                    <div> {{ message }}</div>
+                    {%  endif  %}
+                    {{ form_start(form, {'attr' : {'class' : 'contact-form columns_padding_5'}}) }}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="form-group">
+                                    <label for="name">Nombre y Apellido<span class="required">*</span></label> <i class="fa fa-user highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+                                    {{ form_errors(form.name) }}
+                                </p>
+                                <p class="form-group">
+                                    <label for="email">Email<span class="required">*</span></label> <i class="fa fa-envelope highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.email, {'attr' : {'class' : 'form-control'}}) }}
+                                    {{ form_errors(form.email) }}
+                                </p>
+                                <p class="form-group">
+                                    <label for="subject">Asunto<span class="required">*</span></label> <i class="fa fa-flag highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.subject, {'attr' : {'class' : 'form-control'}}) }}
+                                    {{ form_errors(form.subject) }}
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="contact-form-message form-group">
+                                    <label for="message">Mensaje</label> <i class="fa fa-comment highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.message, {'attr' : {'class' : 'form-control', 'rows' : 3, 'cols': 45}}) }}
+                                    {{ form_errors(form.message) }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="contact-form-submit text-center topmargin_10"> <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color2">enviar mensaje</button> </p>
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
