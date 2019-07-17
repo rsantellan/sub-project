@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ordenar Autoridades</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/maithcommonadmin/images/favicon.ico') }}" />
+
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery-1.7.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery-ui-1.8.16.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/filesSortable.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonadmin/css/eggplant/jquery-ui-1.8.18.custom.css') }}" />
+    <style>
+        #sortable { list-style-type: none; margin: 0; padding: 0; }
+
+        h1{
+            margin-left: auto;
+            margin-right: auto;
+            width: 52%;
+        }
+        img.my_image{
+            display: none;
+        }
+    </style>
+    {% block stylesheets %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</head>
+<body>
+<h1>{% trans %}maith_images_admin_sortable_title{% endtrans %}<img class="my_image" src="{{ asset('bundles/maithcommonadmin/images/loading.gif') }}" /></h1>
+<ul id="sortable">
+    {% for sub_authority in sub_authorities %}
+        <li id="listItem_{{ sub_authority.id }}">
+            {{ sub_authority.name }} / {{ sub_authority.title }}
+        </li>
+    {% endfor %}
+</ul>
+<input type="hidden" id="sort_ajax" value="{{ path('sub_authority_do_sort')}}" />
+<input type="hidden" id="album_id" value="{{ type }}" />
+</body>
+</html>

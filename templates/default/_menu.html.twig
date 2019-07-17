@@ -16,16 +16,15 @@
                     <!-- main nav start -->
                     <nav class="mainmenu_wrapper">
                         <ul class="mainmenu nav sf-menu">
-                            <li> <a href="index.php" class="{% if menu is defined and menu == "inicio" %}current{% endif %}">{% trans %}menu.inicio{% endtrans %}Inicio</a></li>
+                            <li> <a href="{{ path('homepage') }}" class="{% if menu is defined and menu == "inicio" %}current{% endif %}">{% trans %}menu.inicio{% endtrans %}</a></li>
                             <li> <a href="sub.php" >{% trans %}menu.sub{% endtrans %}</a></li>
-                            <li> <a href="seccionales.php" >Seccionales</a></li>
+                            <li> <a href="seccionales.php">Seccionales</a></li>
                             <li> <a href="socios.php">Socios</a></li>
-                            <li> <a href="autoridades.php" >Autoridades</a></li>
-                            <li> <a href="http://biociencias2019.uy/" target="blank" >Congreso</a></li>
-                            <li> <a href="eventos.php" >Eventos</a></li>
-                            <li> <a href="{{  path('newslist') }}" class="{% if menu is defined and menu == "news" %}current{% endif %}">{% trans %}menu.noticias{% endtrans %}Noticias</a></li>
-                            <li> <a href="becas.php" >Becas</a></li>
-                            <li> <a href="{{ path('contactForm') }}" class="{% if menu is defined and menu == "contact" %}current{% endif %}">{% trans %}menu.contacto{% endtrans %}Contacto</a></li>
+                            <li> <a href="{{ path('site_authorities') }}" class="{% if menu is defined and menu == "authorities" %}current{% endif %}">{% trans %}menu.autoridades{% endtrans %}</a></li>
+                            <li> <a href="congreso.php">Congreso</a></li>
+                            <li> <a href="{{  path('newslist') }}" class="{% if menu is defined and menu == "news" %}current{% endif %}">{% trans %}menu.noticias{% endtrans %}</a></li>
+                            <li> <a href="{{  path('site_becas') }}" class="{% if menu is defined and menu == "becas" %}current{% endif %}">{% trans %}menu.becas{% endtrans %}Becas</a></li>
+                            <li> <a href="{{ path('contactForm') }}" class="{% if menu is defined and menu == "contact" %}current{% endif %}">{% trans %}menu.contacto{% endtrans %}</a></li>
                             <!-- eof contacts -->
                         </ul>
                     </nav>

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SubAuthority{% endblock %}
+
+{% block body %}
+    <h1>SubAuthority</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sub_authority.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ sub_authority.name }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ sub_authority.title }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ sub_authority.email }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ sub_authority.type }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ sub_authority.position }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sub_authority_index') }}">back to list</a>
+
+    <a href="{{ path('sub_authority_edit', {'id': sub_authority.id}) }}">edit</a>
+
+    {{ include('sub_authority/_delete_form.html.twig') }}
+{% endblock %}

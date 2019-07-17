@@ -1,0 +1,94 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Listado de Autoridades{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery.colorbox-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonimage/js/imagesManager.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonimage/css/maithalbums.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonadmin/css/colorbox.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <section class="panel panel-color">
+        <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Autoridades</header>
+        <div class="panel-body">
+            <div class="table-responsive no-border">
+                <table class="table table-bordered table-striped mg-t datatable dataTable">
+                    <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Position</th>
+                        <th>Enabled</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sub_authority in sub_authorities %}
+                        <tr>
+                            <td class="text-center">
+                                <img src="{{ sub_authority.id | mAvatar(sub_authority.fullClassName, 'principal') | mImage(150, 150, 'rce') }}" width="150" height="150" alt="{{ sub_authority.id }}" />
+                            </td>
+                            <td>{{ sub_authority.name }}</td>
+                            <td>{{ sub_authority.title }}</td>
+                            <td>{{ sub_authority.email }}</td>
+                            <td>
+                                {% if sub_authority.type == 1 %}
+                                    Titular
+                                {% elseif sub_authority.type == 2 %}
+                                    Suplente
+                                {% elseif sub_authority.type == 3 %}
+                                    Comisión
+                                {% endif %}
+                            </td>
+                            <td>{{ sub_authority.position }}</td>
+                            <td>{% if sub_authority.enable %} Si {% else %} No {% endif %}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('sub_authority_edit', { 'id': sub_authority.id }) }}" class="btn btn-success">Editar</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                {% if sub_authorities.haveToPaginate %}
+                    <div class="navigation text-center">
+                        {{ pagerfanta(news, 'twitter_bootstrap3_translated', {routeName: 'sub_authority_paginated', routeParams: app.request.query.all}) }}
+                    </div>
+                {% endif %}
+
+                <ul>
+                    <li>
+                        <a href="{{ path('sub_authority_new') }}" class="btn btn-info">Crear</a>
+                    </li>
+                </ul>
+
+                <div class="pull-right">
+                    <h4>Ordenar</h4>
+                    <div>
+                        <span><a href="{{ path('sub_authority_sort', {'type' : 1}) }}" class="btn btn-info album_sortable_link">Titulares</a></span>
+                        <span><a href="{{ path('sub_authority_sort', {'type' : 2}) }}" class="btn btn-info album_sortable_link">Suplentes</a></span>
+                        <span><a href="{{ path('sub_authority_sort', {'type' : 3}) }}" class="btn btn-info album_sortable_link">Comisión</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -2076,10 +2076,10 @@ canvas {
 /*
 ** Styled Lists
 */
-ul, ol {
+/*ul, ol {
 	padding-left: 30px;
 	margin-bottom: 20px;
-}
+}*/
 
 .list1 ul,
 ul.list1 {
@@ -10286,7 +10286,7 @@ section .intro_section .slide_description_wrapper {
 
 	.header_white .sf-menu > li > a:hover,
   .header_white .sf-menu > li.active > a {
-		color: #19bcdb;
+		color: #4fa392;
 	}
 
 	.header_white .sf-menu > li + li:before {

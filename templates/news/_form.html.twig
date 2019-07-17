@@ -5,6 +5,11 @@
     {{ form_widget(form.title, {'attr' : {'class' : 'form-control'}}) }}
 </div>
 <div class="form-group">
+    {{ form_errors(form.subtitle) }}
+    <label for="{{ form.subtitle.vars.id }}">Sub Titulo</label>
+    {{ form_widget(form.subtitle, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
     {{ form_errors(form.type) }}
     <label for="{{ form.type.vars.id }}">Tipo</label>
     {{ form_widget(form.type, {'attr' : {'class' : 'form-control'}}) }}

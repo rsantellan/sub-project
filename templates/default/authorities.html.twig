@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 autoridades_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}autoridades.title{% endtrans %}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls page_portfolio section_padding_top_100 section_padding_bottom_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section_header">{% trans %}autoridades.titulares.cabezal{% endtrans %}</h2>
+                    <h4>{% trans %}autoridades.titulares.cabezal.comision{% endtrans %}<span>{% trans %}autoridades.titulares.cabezal.titulares{% endtrans %}</span></h4>
+                    <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                        {% for titular in data.titulares %}
+                        <div class="isotope-item col-lg-4 col-md-6 col-sm-12">
+                            <div class="vertical-item content-padding text-center with_border rounded">
+                                <div class="item-media top_rounded overflow_hidden">
+                                    <img src="{{ titular.id | mAvatar(titular.fullClassName, 'principal') | mImage(700, 700, 'rce') }}" alt="{{ titular.name }}" />
+                                </div>
+                                <div class="item-content">
+                                    <h4 class="bottommargin_0 ">{{ titular.name }}</h4>
+                                    <p class="highlight2 medium fontsize_14 bottommargin_0">{{ titular.title }}</p>
+                                    <p class="greylinks"> <a href="mailto:{{ titular.email }}" class="social-icon soc-mail"></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- eof .isotope_container.row -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_30 section_padding_bottom_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>{% trans %}autoridades.suplentes.cabezal.comision{% endtrans %}<span>{% trans %}autoridades.suplentes.cabezal.suplentes{% endtrans %}</span></h4>
+                    <ul class="listados">
+                        {% for suplente in data.suplentes %}
+                        <li>{{ suplente.name }} / <a href="mailto:{{ suplente.email }}" class="social-icon soc-mail"></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <h4>{% trans %}autoridades.comision.cabezal{% endtrans %}</h4>
+                    <ul class="listados">
+                        {% for comision in data.comision %}
+                            <li>{{ comision.name }} / <a href="mailto:{{ comision.email }}" class="social-icon soc-mail"></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-12">
+                    <h4>{% trans %}autoridades.actas.titulo{% endtrans %}</h4>
+                    <p>{% trans %}autoridades.actas.texto{% endtrans %}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

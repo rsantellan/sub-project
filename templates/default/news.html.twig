@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
                     <article class="single-post vertical-item content-padding big-padding rounded post">
                         <div class="entry-thumbnail item-media top_rounded">
-                            {% if avatar is defined %}
+                            {% if avatar is defined and avatar is not null%}
                                 <img src="{{ avatar.fullPath | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object.title }}" />
                             {% else %}
                                 <img src="{{ object.id | mAvatar(object.fullClassName, 'principal') | mImage(1170, 780, 'rce') }}" width="1170" height="780" alt="{{ object.title }}" />

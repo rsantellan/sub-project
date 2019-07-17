@@ -1,0 +1,22 @@
+{{ form_start(form, {'attr' : { 'role' : 'form'} }) }}
+<div class="form-group">
+    {{ form_errors(form.name) }}
+    <label for="{{ form.name.vars.id }}">Nombre</label>
+    {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_errors(form.title) }}
+    <label for="{{ form.title.vars.id }}">Titulo</label>
+    {{ form_widget(form.title, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_errors(form.email) }}
+    <label for="{{ form.email.vars.id }}">Email</label>
+    {{ form_widget(form.email, {'attr' : {'class' : 'form-control'}}) }}
+</div>
+    {{ form_widget(form) }}
+    {{ form_rest(form) }}
+    <div class="form-group">
+        <button type="submit" class="btn btn-default"><i class="fa fa-save"></i>Guardar</button>
+    </div>
+{{ form_end(form) }}

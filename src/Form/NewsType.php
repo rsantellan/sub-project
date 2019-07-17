@@ -18,6 +18,9 @@ class NewsType extends AbstractType
             ->add('title', TextType::class, [
                 'required' => true
             ])
+            ->add('subtitle', TextType::class, [
+                'required' => true
+            ])
             ->add('Description', TextareaType::class, [
                 'required' => true
             ])

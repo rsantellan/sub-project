@@ -1,0 +1,21 @@
+<div class="panel panel-blog-post">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#posts-accordion1" href="#blog-collapse{{ object_new.id }}"
+           class="{% if position > 1 %}collapsed{% endif %}"></a>
+        <div class="date entry-meta-corner">
+            <span>{{ object_new.day }}</span>
+            <span>{{ object_new.simpleMonth }}/{{ object_new.year }}</span>
+        </div>
+        <h4 class="hover-color2">
+            <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.title }}</a>
+        </h4>
+        <div class="content-justify greylinks fontsize_12">
+            <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.subtitle }}</a>
+        </div>
+    </div>
+    <div id="blog-collapse{{ object_new.id }}" class="panel-collapse collapse {% if position == 1 %}in{% endif %}">
+        <div class="panel-body">
+            <p>{{ object_new.Description | raw }}</p>
+        </div>
+    </div>
+</div>

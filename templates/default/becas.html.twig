@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 becas_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}becas.titulo{% endtrans %}Becas</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_100 section_padding_bottom_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section_header">{% trans %}becas.titulo{% endtrans %}</h2>
+                    <section class="ls section_padding_top_40 section_padding_bottom_65">
+                        <div class="container">
+                            <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                                <div class="isotope-item col-md-6 col-sm-6">
+                                    <article class="vertical-item content-padding with_border rounded text-center">
+                                        <div class="item-content">
+                                            <h4> <a href="becas-movilidad.php">{% trans %}becas.movilidad.titulo{% endtrans %}</a> </h4>
+                                            <p class="topmargin_20"> <a href="becas-movilidad.php" class="theme_button color2 inverse min_width_button">{% trans %}becas.movilidad.link{% endtrans %}</a> </p>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="isotope-item col-md-6 col-sm-6">
+                                    <article class="vertical-item content-padding with_border rounded text-center">
+                                        <div class="item-content">
+                                            <h4> <a href="becas-congreso.php">{% trans %}becas.congreso.titulo{% endtrans %}</a> </h4>
+                                            <p class="topmargin_20"> <a href="becas-congreso.php" class="theme_button color2 inverse min_width_button">{% trans %}becas.congreso.link{% endtrans %}</a> </p>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

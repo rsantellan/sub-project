@@ -58,6 +58,11 @@ class News implements \Maith\Common\AdminBundle\Interfaces\EntityMediaInterface
      */
     private $type = 1;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -227,5 +232,33 @@ class News implements \Maith\Common\AdminBundle\Interfaces\EntityMediaInterface
                 break;
 
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getSimpleMonth() : string
+    {
+        return $this->getUpdatedAt()->format('m');
+    }
+
+    /**
+     * @return string
+     */
+    public function getYear() : string
+    {
+        return $this->getUpdatedAt()->format('y');
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
     }
 }

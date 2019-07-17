@@ -1,0 +1,17 @@
+<div class="vertical-item content-absolute content-padding">
+    <div class="item-media rounded overflow_hidden ds black">
+        <img src="{{ object_new.id | mAvatar(object_new.fullClassName, 'principal') | mImage(395, 395, 'rce') }}" alt="{{ object_new.title }}" />
+        <div class="date entry-meta-corner main_bg_color">
+            <span>{{ object_new.day }}</span>
+            <span>{{ object_new.simpleMonth }}/{{ object_new.year }}</span>
+        </div>
+    </div>
+    <div class="item-content ds">
+        <h4 class="entry-title highlight hover-color2 bottommargin_0">
+            <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.title }}</a>
+        </h4>
+        <div class="content-justify darklinks fontsize_12 regular">
+            <a href="{{ path('shownew', {'slug': object_new.slug}) }}">{{ object_new.subtitle }}</a>
+        </div>
+    </div>
+</div>

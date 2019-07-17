@@ -42,3 +42,9 @@
 	</a>
 </li>
 {% endif %}
+<li class="{% if (activemenu is defined) and activemenu == 'authorities' %}active{%endif%}">
+	<a href="{{ path('sub_authority_index')}}">
+		<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+		<span>Autoridades</span>
+	</a>
+</li>
