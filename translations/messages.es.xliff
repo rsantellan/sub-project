@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2019-07-17T16:55:22Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2019-07-19T13:19:06Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -18,22 +18,22 @@
       </trans-unit>
       <trans-unit id="15abcf2afac8b50b9107f02374ffff06ff59feef" resname="Imagen Superior">
         <source>Imagen Superior</source>
-        <target state="new">Imagen Superior</target>
+        <target>Imagen Superior</target>
         <jms:reference-file line="29">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="06c9a38f25f2abc7b9d313ded6a76273767194db" resname="Imagen lateral">
         <source>Imagen lateral</source>
-        <target state="new">Imagen lateral</target>
+        <target>Imagen lateral</target>
         <jms:reference-file line="30">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="eb9e23efc494419b95a234a8b6ce184409f8b3ac" resname="Mensaje">
         <source>Mensaje</source>
-        <target state="new">Mensaje</target>
+        <target>Mensaje</target>
         <jms:reference-file line="41">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="e9ccf920fbd4b652654eef53ef5136ff3609e2af" resname="Nombre y Apellido">
         <source>Nombre y Apellido</source>
-        <target state="new">Nombre y Apellido</target>
+        <target>Nombre y Apellido</target>
         <jms:reference-file line="24">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0db222a6f7d4f7e844457d9de2a791f18f8e11ac" resname="autoridades.actas.texto">
@@ -84,17 +84,36 @@
       <trans-unit id="7e7db65e9053d23ced8890822efaf7fbf1d6d358" resname="becas.congreso.link">
         <source>becas.congreso.link</source>
         <target>ver más</target>
-        <jms:reference-file line="33">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="74af7527bd943f19d37229be4e1115cf35ef452f" resname="becas.congreso.titulo">
         <source>becas.congreso.titulo</source>
         <target>Becas para el Congreso Nacional de Biociencias</target>
-        <jms:reference-file line="32">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="93ad51485fa42d762f8eb16522834b15ebb74f08" resname="becas.movilidad.link">
         <source>becas.movilidad.link</source>
         <target>ver más</target>
-        <jms:reference-file line="25">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6e4cfe18318b116c84e8d32b369904b4456b0df1" resname="becas.movilidad.texto">
+        <source>becas.movilidad.texto</source>
+        <target><![CDATA[<h2 class="section_header">Becas de Movilidad Regional</h2>
+                    <p>Para socios activos de la Sociedad Uruguaya de Biociencias (SUB)</p>
+                    <p>Los rubros a financiar son asistencia a congresos o pasantías (inscripciones a congresos, pasajes, viáticos) Aunque no es excluyente, se dará preferencia a actividades en la región (Argentina, Brasil, Chile, Paraguay).</p>
+                    <p><strong>Requisitos:</strong></p>
+                    <ul class="listados">
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Estar inscriptos en un programa de posgrado nacional</li>
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulación (estar al día en las cuotas de los últimos dos años)</li>
+                    </ul>
+                    <h4>Llamado abierto</h4>
+                    <p>Los rubros a financiar son asistencia a congresos o pasantías (inscripciones a congresos, pasajes, viáticos) a realizarse entre el X/X y el X/X de 20XX. El máximo a adjudicar será de USD XXX por persona y, aunque no es excluyente, se dará preferencia a actividades en la región (Argentina, Brasil, Chile, Paraguay).</p>
+                    <p><strong>Requisitos:</strong></p>
+                    <ul class="listados">
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Estar inscriptos en un programa de posgrado nacional</li>
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulación (estar al día en las cuotas de los últimos dos años)</li>
+                    </ul>]]></target>
+        <jms:reference-file line="17">/../../../../../../.././templates/default/becasMovilidad.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="42bee8135b87aa2b5fd01ea1762c0f253381a00f" resname="becas.movilidad.titulo">
         <source>becas.movilidad.titulo</source>
@@ -106,6 +125,7 @@
         <target>Becas</target>
         <jms:reference-file line="17">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/../../../../../../.././templates/default/becasMovilidad.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="804940c7273857e2200ef5d81845d0810b31fe76" resname="contact.celular">
         <source>contact.celular</source>

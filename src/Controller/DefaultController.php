@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\SubAuthority;
+use App\Form\BecaMovilidadType;
 use App\Form\ContactType;
 use App\Repository\SubAuthorityRepository;
 use Maith\Common\AdminBundle\Services\MaithParametersService;
@@ -145,10 +146,10 @@ class DefaultController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             if (empty($data['lastname'])) {
-                $this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $this->sendContactEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
             } else {
-                $message = "Ocurrio un error al enviar el mail.";
+                $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
             }
         }
         return $this->render('default/contact.html.twig', [
@@ -168,7 +169,7 @@ class DefaultController extends AbstractController
      * @param $message
      * @return int
      */
-    private function sendEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $name, $subject, $email, $message)
+    private function sendContactEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $name, $subject, $email, $message)
     {
         $from = [$maithParametersService->getParameter('contact-email-from') => $maithParametersService->getParameter('contact-email-from-name')];
         $message = (new \Swift_Message($maithParametersService->getParameter('contact-email-subject')))
@@ -186,16 +187,7 @@ class DefaultController extends AbstractController
                     ]
                 ),
                 'text/html'
-            )/*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'emails/registration.txt.twig',
-                    ['name' => $name]
-                ),
-                'text/plain'
             )
-            */
         ;
 
         return $mailer->send($message);
@@ -230,5 +222,94 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
             'menu' => 'becas',
         ]);
+    }
+
+    /**
+     * @Route("/becas-movilidad.html", name="site_becas_movilidad")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function becasMovilidad(Request $request, \Swift_Mailer $mailer, MaithParametersService $maithParametersService)
+    {
+
+        $message = null;
+        $form = $this->createForm(BecaMovilidadType::class, null, array(
+            // To set the action use $this->generateUrl('route_identifier')
+            'action' => $this->generateUrl('site_becas_movilidad'),
+            'method' => 'POST'
+        ));
+        $message = null;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            if (empty($data['lastname'])) {
+                $this->sendBecaMovilidadEmail($maithParametersService, $mailer, $data);
+                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $message = "Mensaje enviado correctamente";
+            } else {
+                $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+            }
+        }
+        return $this->render('default/becasMovilidad.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'becas',
+            'form' => $form->createView(),
+            'message' => $message,
+        ]);
+    }
+
+    /**
+     * @param MaithParametersService $maithParametersService
+     * @param \Swift_Mailer $mailer
+     * @param [] $data
+     */
+    private function sendBecaMovilidadEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $data)
+    {
+        $email = $data['email'];
+        $name = $data['name'];
+        $telephone = $data['telephone'];
+        $institution = $data['institution'];
+        $program = $data['program'];
+        $message = $data['message'];
+        $from = [$maithParametersService->getParameter('becas-movilidad-email-from') => $maithParametersService->getParameter('becas-movilidad-email-from-name')];
+        $message = (new \Swift_Message($maithParametersService->getParameter('becas-movilidad-email-subject')))
+            ->setFrom($from)
+            ->setTo($maithParametersService->getParameter('becas-movilidad-email-to'))
+            ->setReplyTo($email)
+            ->setBody(
+                $this->renderView(
+                    'emails/becasMovilidad.html.twig',
+                    [
+                        'name' => $name,
+                        'telephone' => $telephone,
+                        'email' => $email,
+                        'message' => $message,
+                        'institution' => $institution,
+                        'program' => $program,
+                    ]
+                ),
+                'text/html'
+            )
+        ;
+        /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
+        foreach($data['cv'] as $fileUploaded) {
+            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
+            $attachment->setFilename($fileUploaded->getClientOriginalName());
+            $message->attach($attachment);
+        }
+
+        /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
+        foreach($data['scholarship'] as $fileUploaded) {
+            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
+            $attachment->setFilename($fileUploaded->getClientOriginalName());
+            $message->attach($attachment);
+        }
+
+        /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
+        foreach($data['letter'] as $fileUploaded) {
+            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
+            $attachment->setFilename($fileUploaded->getClientOriginalName());
+            $message->attach($attachment);
+        }
+        return $mailer->send($message);
     }
 }

@@ -41,24 +41,24 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <p class="form-group">
-                                    <label for="name">Nombre y Apellido<span class="required">*</span></label> <i class="fa fa-user highlight2" aria-hidden="true"></i>
+                                    <label for="{{ form.name.vars.id }}">Nombre y Apellido<span class="required">*</span></label> <i class="fa fa-user highlight2" aria-hidden="true"></i>
                                     {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
                                     {{ form_errors(form.name) }}
                                 </p>
                                 <p class="form-group">
-                                    <label for="email">Email<span class="required">*</span></label> <i class="fa fa-envelope highlight2" aria-hidden="true"></i>
+                                    <label for="{{ form.email.vars.id }}">Email<span class="required">*</span></label> <i class="fa fa-envelope highlight2" aria-hidden="true"></i>
                                     {{ form_widget(form.email, {'attr' : {'class' : 'form-control'}}) }}
                                     {{ form_errors(form.email) }}
                                 </p>
                                 <p class="form-group">
-                                    <label for="subject">Asunto<span class="required">*</span></label> <i class="fa fa-flag highlight2" aria-hidden="true"></i>
+                                    <label for="{{ form.subject.vars.id }}">Asunto<span class="required">*</span></label> <i class="fa fa-flag highlight2" aria-hidden="true"></i>
                                     {{ form_widget(form.subject, {'attr' : {'class' : 'form-control'}}) }}
                                     {{ form_errors(form.subject) }}
                                 </p>
                             </div>
                             <div class="col-sm-6">
                                 <p class="contact-form-message form-group">
-                                    <label for="message">Mensaje</label> <i class="fa fa-comment highlight2" aria-hidden="true"></i>
+                                    <label for="{{ form.message.vars.id }}">Mensaje</label> <i class="fa fa-comment highlight2" aria-hidden="true"></i>
                                     {{ form_widget(form.message, {'attr' : {'class' : 'form-control', 'rows' : 3, 'cols': 45}}) }}
                                     {{ form_errors(form.message) }}
                                 </p>
