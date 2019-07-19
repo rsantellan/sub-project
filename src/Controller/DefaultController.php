@@ -225,6 +225,38 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/becas-congresos.html", name="site_becas_congresos")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function becasCongresos(Request $request, \Swift_Mailer $mailer, MaithParametersService $maithParametersService)
+    {
+        $message = null;
+        $form = $this->createForm(BecaMovilidadType::class, null, array(
+            // To set the action use $this->generateUrl('route_identifier')
+            'action' => $this->generateUrl('site_becas_congresos'),
+            'method' => 'POST'
+        ));
+        $message = null;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            if (empty($data['lastname'])) {
+                $this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasCongresos.html.twig');
+                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $message = "Mensaje enviado correctamente";
+            } else {
+                $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+            }
+        }
+        return $this->render('default/becasCongreso.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'becas',
+            'form' => $form->createView(),
+            'message' => $message,
+        ]);
+    }
+
+    /**
      * @Route("/becas-movilidad.html", name="site_becas_movilidad")
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -242,7 +274,7 @@ class DefaultController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             if (empty($data['lastname'])) {
-                $this->sendBecaMovilidadEmail($maithParametersService, $mailer, $data);
+                $this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
                 //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
             } else {
@@ -261,8 +293,9 @@ class DefaultController extends AbstractController
      * @param MaithParametersService $maithParametersService
      * @param \Swift_Mailer $mailer
      * @param [] $data
+     * @return int
      */
-    private function sendBecaMovilidadEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $data)
+    private function sendBecaEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, $data, $viewType = null)
     {
         $email = $data['email'];
         $name = $data['name'];
@@ -270,10 +303,10 @@ class DefaultController extends AbstractController
         $institution = $data['institution'];
         $program = $data['program'];
         $message = $data['message'];
-        $from = [$maithParametersService->getParameter('becas-movilidad-email-from') => $maithParametersService->getParameter('becas-movilidad-email-from-name')];
-        $message = (new \Swift_Message($maithParametersService->getParameter('becas-movilidad-email-subject')))
+        $from = [$maithParametersService->getParameter('becas-email-from') => $maithParametersService->getParameter('becas-email-from-name')];
+        $message = (new \Swift_Message($maithParametersService->getParameter('becas-email-subject')))
             ->setFrom($from)
-            ->setTo($maithParametersService->getParameter('becas-movilidad-email-to'))
+            ->setTo($maithParametersService->getParameter('becas-email-to'))
             ->setReplyTo($email)
             ->setBody(
                 $this->renderView(

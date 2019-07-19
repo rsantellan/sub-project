@@ -1,0 +1,21 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Crear Seccional{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel panel-color">
+                <header class="panel-heading text-uppercase"><i class="fa fa-pencil-square-o"></i>Crear Seccional</header>
+                <div class="panel-body">
+                    {{ include('sub_sections/_form.html.twig') }}
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-8">
+            <a href="{{ path('sub_sections_index') }}" class="btn btn-success" style="float: left; margin: 0!important;">
+                <i class="fa fa-arrow-left"></i>Volver al listado
+            </a>
+        </div>
+    </div>
+{% endblock %}

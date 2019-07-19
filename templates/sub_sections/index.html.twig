@@ -1,0 +1,72 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Listado de Seccionales{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery.colorbox-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/maithcommonimage/js/imagesManager.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonimage/css/maithalbums.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonadmin/css/colorbox.css') }}" />
+{% endblock %}
+
+{% block body %}
+<section class="panel panel-color">
+    <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Secciones</header>
+    <div class="panel-body">
+        <div class="table-responsive no-border">
+            <table class="table table-bordered table-striped mg-t datatable dataTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Link</th>
+                <th>Position</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sub_section in sub_sections %}
+            <tr>
+                <td class="text-center">
+                    <img src="{{ sub_section.id | mAvatar(sub_section.fullClassName, 'principal') | mImage(150, 150, 'rce') }}" width="150" height="150" alt="{{ sub_section.id }}" />
+                </td>
+                <td>{{ sub_section.name }}</td>
+                <td>{{ sub_section.link }}</td>
+                <td>{{ sub_section.position }}</td>
+                <td>
+                    <a href="{{ path('sub_sections_edit', {'id': sub_section.id}) }}" class="btn btn-success">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+            </table>
+
+            {% if sub_sections.haveToPaginate %}
+                <div class="navigation text-center">
+                    {{ pagerfanta(news, 'twitter_bootstrap3_translated', {routeName: 'sub_sections_paginated', routeParams: app.request.query.all}) }}
+                </div>
+            {% endif %}
+
+            <ul>
+                <li>
+                    <a href="{{ path('sub_sections_new') }}" class="btn btn-info">Crear</a>
+                </li>
+            </ul>
+
+            <div class="pull-right">
+                <h4>Ordenar</h4>
+                <div>
+                    <span><a href="{{ path('sub_sections_sort') }}" class="btn btn-info album_sortable_link">Ordenar</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

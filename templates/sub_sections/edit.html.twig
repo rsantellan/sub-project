@@ -1,6 +1,6 @@
 {% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
 
-{% block title %}Editar Autoridad{% endblock %}
+{% block title %}Editar Seccional{% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery.colorbox-min.js') }}"></script>
@@ -15,24 +15,24 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel panel-color">
-                <header class="panel-heading text-uppercase"><i class="fa fa-pencil-square-o"></i>Editar Autoridad</header>
+                <header class="panel-heading text-uppercase"><i class="fa fa-pencil-square-o"></i>Editar Seccional</header>
                 <div class="panel-body">
-                    {{ include('sub_authority/_form.html.twig', {'button_label': 'Update'}) }}
+                    {{ include('sub_sections/_form.html.twig', {'button_label': 'Update'}) }}
                 </div>
             </section>
         </div>
     </div>
     <div class="row">
-        {{ render(controller('MaithCommonAdminBundle:Albums:albumsData', {'id': sub_authority.id, 'objectclass' : sub_authority.fullClassName }))}}
+        {{ render(controller('MaithCommonAdminBundle:Albums:albumsData', {'id': sub_section.id, 'objectclass' : sub_section.fullClassName }))}}
         <hr/>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ path('sub_authority_index') }}" class="btn btn-success" style="float: left; margin: 0!important;">
+            <a href="{{ path('sub_sections_index') }}" class="btn btn-success" style="float: left; margin: 0!important;">
                 <i class="fa fa-arrow-left"></i>Volver al listado
             </a>
             <div class="pull-right">
-                {{ include('sub_authority/_delete_form.html.twig') }}
+                {{ include('sub_sections/_delete_form.html.twig') }}
             </div>
         </div>
     </div>

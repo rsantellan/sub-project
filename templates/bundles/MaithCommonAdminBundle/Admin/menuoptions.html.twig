@@ -48,3 +48,9 @@
 		<span>Autoridades</span>
 	</a>
 </li>
+<li class="{% if (activemenu is defined) and activemenu == 'sections' %}active{%endif%}">
+	<a href="{{ path('sub_sections_index')}}">
+		<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+		<span>Seccionales</span>
+	</a>
+</li>

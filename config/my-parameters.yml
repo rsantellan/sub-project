@@ -3,7 +3,7 @@ parameters:
     contact-email-from-name: 'Rodrigo Santellan'
     contact-email-to: info@info.com
     contact-email-subject: '[SUM] Contacto desde sitio web'
-    becas-movilidad-email-from: info@info.com
-    becas-movilidad-email-from-name: 'Rodrigo Santellan'
-    becas-movilidad-email-to: info@info.com
-    becas-movilidad-email-subject: '[SUM] Beca de movilidad'
+    becas-email-from: info@info.com
+    becas-email-from-name: 'Rodrigo Santellan'
+    becas-email-to: info@info.com
+    becas-email-subject: '[SUM] Becas'
