@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+{% endblock %}
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 socios_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}socios.titulo{% endtrans %}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_100 section_padding_bottom_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section_header">{% trans %}socios.inscripcion.titulo{% endtrans %}Inscripción</h2>
+                    {% trans %}socios.inscripcion.texto{% endtrans %}
+                    <p>Aquellos interesados en hacerse socios de la SUB podrán hacerlo completando el formulario a continuación y adjuntando el comprobante de pago  en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001.</p>
+                    {%  if message is not null  %}
+                        <div> {{ message }}</div>
+                    {%  endif  %}
+                    {{ form_start(form, {'attr' : {'class' : 'contact-form columns_padding_10 bottommargin_40'}}) }}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0">
+                                    <label for="{{ form.name.vars.id }}">Nombre Completo<span class="required">*</span></label>
+                                    <i class="fa fa-user highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.name, {'attr' : {'class' : 'form-control', 'size' : 30, 'aria-required': 'true'}}) }}
+                                    {{ form_errors(form.name) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0">
+                                    <label for="{{ form.identity.vars.id }}">Cédula de Indentidad<span class="required">*</span></label>
+                                    <i class="fa fa-id-card highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.identity, {'attr' : {'class' : 'form-control', 'size' : 30, 'aria-required': 'true'}}) }}
+                                    {{ form_errors(form.identity) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0">
+                                    <label for="{{ form.address.vars.id }}">Dirección Personal<span class="required">*</span></label>
+                                    <i class="fa fa-map-marker highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.address, {'attr' : {'class' : 'form-control', 'size' : 255, 'aria-required': 'true'}}) }}
+                                    {{ form_errors(form.address) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0">
+                                    <label for="{{ form.email.vars.id }}">Email<span class="required">*</span></label>
+                                    <i class="fa fa-envelope highlight2" aria-hidden="true"></i>
+                                    {{ form_widget(form.email, {'attr' : {'class' : 'form-control', 'size' : 30, 'aria-required': 'true'}}) }}
+                                    {{ form_errors(form.email) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0"> <!--<label for="subject">Nivel<span class="required">*</span></label> <i class="fa fa-level-up highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="level" id="subject" class="form-control" placeholder="Nivel">-->
+                                    {{ form_widget(form.level, {'attr' : {'class' : 'form-control'}}) }}
+                                    {{ form_errors(form.level) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group bottommargin_0"> <!--<label for="subject">Seccional<span class="required">*</span></label> <i class="fa fa-pencil highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="seccional" id="seccional" class="form-control" placeholder="Seccional a asociarse (optativo, máximo 2)">-->
+                                    {{ form_widget(form.sections, {'attr' : {'class' : 'form-control'}}) }}
+                                    {{ form_errors(form.sections) }}
+                                </div>
+
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="docs-datepicker">
+                                    <div class="form-group bottommargin_0">
+                                        <i class="fa fa-calendar highlight2 highlight2-datapiker" aria-hidden="true"></i>
+                                        {{ form_widget(form.startdate, {'attr' : {'class' : 'form-control'}}) }}
+                                        {{ form_errors(form.startdate) }}
+                                    </div>
+                                    <div class="docs-datepicker-container"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                {{ form_widget(form.payment, {'attr' : {'class' : 'inputfile inputfile-6', 'data-multiple-caption': '{count} files selected'}}) }}
+                                {{ form_errors(form.payment) }}
+                                <label class="for-ok" for="{{ form.payment.vars.id }}">
+                                    <span></span>
+                                    <strong>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                        </svg>
+                                        cargar archivo&hellip;
+                                    </strong>
+                                </label>
+                            </div>
+                            <div class="col-sm-12 bottommargin_0">
+                                <div class="contact-form-submit topmargin_10">
+                                    <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color2 wide_button margin_0 inverse">enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_0 section_padding_bottom_75">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Pago de cuota social - Montos para año 2019</h4>
+                    <div class="table-responsive">
+                        <table class="table_template darklinks" id="timetable">
+                            <thead>
+                            <tr>
+                                <th class="categoria">Categoría</th>
+                                <th>Anualidad ($)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="categoria"><strong>Nivel 3</strong><br/>Docentes con DT; grados 4 y 5; Investigadores líderes de grupo; Profesionales</td>
+                                <td>1.600</td>
+                            </tr>
+                            <tr>
+                                <td class="categoria"><strong>Nivel 2</strong><br/>Estudiantes de post-grado; Docentes grado 2 y 3 sin DT; post-docs</td>
+                                <td>950</td>
+                            </tr>
+                            <tr>
+                                <td class="categoria"><strong>Nivel 1</strong><br/>Ayudantes honorarios; docentes grado 1 (no estudiantes de post-grado); estudiantes de pregrado; técnicos de laboratorio.</td>
+                                <td>500</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>
+
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SubInscriptionSections{% endblock %}
+
+{% block body %}
+    <h1>SubInscriptionSections</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sub_inscription_section.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ sub_inscription_section.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sub_inscription_sections_index') }}">back to list</a>
+
+    <a href="{{ path('sub_inscription_sections_edit', {'id': sub_inscription_section.id}) }}">edit</a>
+
+    {{ include('sub_inscription_sections/_delete_form.html.twig') }}
+{% endblock %}

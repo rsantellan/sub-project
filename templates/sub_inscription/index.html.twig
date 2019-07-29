@@ -1,0 +1,55 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Listado de inscripciones{% endblock %}
+
+{% block body %}
+    <section class="panel panel-color">
+        <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Inscripciones</header>
+        <div class="panel-body">
+            <div class="table-responsive no-border">
+                <table class="table table-bordered table-striped mg-t datatable dataTable">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Identity</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Level</th>
+                        <th>Startdate</th>
+                        <th>Payment</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sub_inscription in sub_inscriptions %}
+                        <tr>
+                            <td>{{ sub_inscription.id }}</td>
+                            <td>{{ sub_inscription.name }}</td>
+                            <td>{{ sub_inscription.identity }}</td>
+                            <td>{{ sub_inscription.address }}</td>
+                            <td>{{ sub_inscription.email }}</td>
+                            <td>{{ sub_inscription.level }}</td>
+                            <td>{{ sub_inscription.startdate ? sub_inscription.startdate|date('Y-m-d') : '' }}</td>
+                            <td>{{ sub_inscription.payment }}</td>
+                            <td>
+                                <a href="{{ path('sub_inscription_show', {'id': sub_inscription.id}) }}"
+                                   class="btn btn-info">Mostrar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="9">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% if sub_inscriptions.haveToPaginate %}
+                    <div class="navigation text-center">
+                        {{ pagerfanta(sub_inscriptions, 'twitter_bootstrap3_translated', {routeName: 'sub_inscription_index_paginated', routeParams: app.request.query.all}) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

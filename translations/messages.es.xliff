@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2019-07-19T13:19:06Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2019-07-23T10:19:28Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -86,6 +86,15 @@
         <target>ver más</target>
         <jms:reference-file line="35">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="d263238fe2ad8805046d0c738f077b44c88c2eb6" resname="becas.congreso.texto">
+        <source>becas.congreso.texto</source>
+        <target><![CDATA[<h2 class="section_header">Becas para el Congreso Nacional de Biociencias</h2>
+							<p>Desde el 1 de abril hasta el 1 de mayo de 2019 a las 23:59 horas estará abierto el llamado a socios activos de la SUB Nivel I y Nivel II para aspirar a becas del 50% del costo de inscripción al Segundo Congreso Nacional de Biociencias que tendrá lugar entre el 4 y el 7 de setiembre de 2019 en el Hotel Radisson de Montevideo. </p>
+							<p>La beca consiste en el reembolso del 50% del costo de inscripción temprana. Dicho reembolso será efectivizado luego de la finalización del congreso, por lo que los socios que reciban la beca deberán abonar la inscripción completa y luego recibirán la devolución correspondiente (USD 45 para los becados Nivel I y USD 65 para los becados Nivel II). </p>
+							<p>La comunicación del otorgamiento de la beca será realizada antes de la fecha de cierre de la inscripción temprana (15 de mayo de 2019). </p>
+							<p><a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZmNpZW4uZWR1LnV5fHN1YnxneDo2OTgwMjBmODZlODgyYjAy" target="blank">Descargar</a> bases del llamado</p>]]></target>
+        <jms:reference-file line="17">/../../../../../../.././templates/default/becasCongreso.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="74af7527bd943f19d37229be4e1115cf35ef452f" resname="becas.congreso.titulo">
         <source>becas.congreso.titulo</source>
         <target>Becas para el Congreso Nacional de Biociencias</target>
@@ -125,6 +134,7 @@
         <target>Becas</target>
         <jms:reference-file line="17">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../../../.././templates/default/becas.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/../../../../../../.././templates/default/becasCongreso.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../../../.././templates/default/becasMovilidad.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="804940c7273857e2200ef5d81845d0810b31fe76" resname="contact.celular">
@@ -151,6 +161,7 @@
         <source>maith_images_admin_sortable_title</source>
         <target>Ordenar</target>
         <jms:reference-file line="28">/../../../../../../.././templates/sub_authority/sortable.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/../../../../../../.././templates/sub_sections/sortable.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="57150e42b68d862175f0e06ac9eab7fdd6315ae6" resname="menu.autoridades">
         <source>menu.autoridades</source>
@@ -177,11 +188,37 @@
         <target>Noticias</target>
         <jms:reference-file line="25">/../../../../../../.././templates/default/_menu.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="3e499f34eab0192eb8cb7fe2ad140564bc86cc03" resname="menu.seccionales">
+        <source>menu.seccionales</source>
+        <target>Seccionales</target>
+        <jms:reference-file line="21">/../../../../../../.././templates/default/_menu.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="591c8a18c9faf68d38b68ee1e3e75c1bd1f27717" resname="menu.sub">
         <source>menu.sub</source>
         <target xml:space="preserve">¿Qué es la SUB?
 </target>
         <jms:reference-file line="20">/../../../../../../.././templates/default/_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f8ec802c212d8bb652136c8289ec147259429571" resname="seccionales.body">
+        <source>seccionales.body</source>
+        <target><![CDATA[<h4>¿Qué son las seccionales de la SUB?</h4>
+                    <p>Las seccionales de la SUB están integradas por grupos de socios nucleados en torno a un área particular dentro de las Biociencias, o que se encuentran en determinada región del país. <br/>Por pertenecer a la SUB cada seccional está respaldada por la personería jurídica de la Sociedad, lo cual le facilita establecer convenios con otras sociedades científicas regionales o internacionales. Como este es un factor muy importante para la vinculación de nuestros investigadores con grupos del exterior, la SUB estimula la formación de seccionales. </p>
+                    <h4>Requisitos</h4>
+                    <p>Para constituir una seccional los investigadores interesados deben presentar una solicitud a la Comisión Directiva de la SUB explicando los intereses comunes del grupo, las ventajas de constituirse como tal y dando a conocer su forma de funcionamiento. La única condición necesaria por el momento es que todos los socios de las seccionales sean socios SUB. </p>
+                    <p>Se espera que cada seccional informe periódicamente a la SUB sobre los siguientes aspectos de su funcionamiento:</p>
+                    <ul class="listados">
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><strong>Autoridades:</strong> Se deberá notificar quiénes son sus representantes, cómo se eligen y cuánto tiempo duran en su cargo.</li>
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><strong>Actividades:</strong> Se espera que las seccionales comuniquen cuáles son las actividades planificadas para el año a los   efectos de que la SUB también pueda contribuir a su difusión y eventualmente a coordinar estas actividades con las propias.</li>
+                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><strong>Integrantes:</strong> Las seccionales sólo pueden admitir a socios de la SUB. Las seccionales deberán comunicar quiénes son los socios de la SUB que la integran.</li>
+                    </ul>
+                    <p>Cada seccional recibirá de la SUB un apoyo económico para el desarrollo de sus actividades que corresponde al 15% de la anualidad de cada socio.  Los socios pueden pertenecer a más de una seccional, pero la SUB sólo aportará a una seccional por socio. En estos casos, el socio deberá indicar a la SUB cuál es la seccional a la que otorgará su apoyo, en el formulario de membresía.</p>]]></target>
+        <jms:reference-file line="18">/../../../../../../.././templates/default/seccionales.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="842bfcad7fa230f68bae4924f22dcb157c5db16d" resname="seccionales.title">
+        <source>seccionales.title</source>
+        <target>Seccionales</target>
+        <jms:reference-file line="17">/../../../../../../.././templates/default/seccionales.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/../../../../../../.././templates/default/seccionales.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

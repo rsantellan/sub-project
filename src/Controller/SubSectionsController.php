@@ -27,6 +27,7 @@ class SubSectionsController extends AbstractController
     {
         return $this->render('sub_sections/index.html.twig', [
             'sub_sections' => $subSectionsRepository->findLatest($page, 10),
+            'activemenu' => 'sections',
         ]);
     }
 
@@ -50,6 +51,7 @@ class SubSectionsController extends AbstractController
         return $this->render('sub_sections/new.html.twig', [
             'sub_section' => $subSection,
             'form' => $form->createView(),
+            'activemenu' => 'sections',
         ]);
     }
 
@@ -60,6 +62,7 @@ class SubSectionsController extends AbstractController
     {
         return $this->render('sub_sections/show.html.twig', [
             'sub_section' => $subSection,
+            'activemenu' => 'sections',
         ]);
     }
 
@@ -82,6 +85,7 @@ class SubSectionsController extends AbstractController
         return $this->render('sub_sections/edit.html.twig', [
             'sub_section' => $subSection,
             'form' => $form->createView(),
+            'activemenu' => 'sections',
         ]);
     }
 

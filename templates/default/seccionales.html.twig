@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 seccionales_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}seccionales.title{% endtrans %}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_100 section_padding_bottom_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section_header">{% trans %}seccionales.title{% endtrans %}</h2>
+                    {% trans %}seccionales.body{% endtrans %}
+                    <section class="ls section_padding_top_65 section_padding_bottom_65">
+                        <div class="container">
+                            <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                                {% for sub_section in sub_sections %}
+                                <div class="isotope-item col-md-4 col-sm-6">
+                                    <article class="vertical-item content-padding with_border rounded text-center">
+                                        <div class="item-media top_rounded overflow_hidden">
+                                            <img src="{{ sub_section.id | mAvatar(sub_section.fullClassName, 'principal') | mImage(1170, 780, 'rce') }}" alt="{{ sub_section.name }}"/>
+                                        </div>
+                                        <div class="item-content">
+                                            <h4> <a href="pipeline-single.html">{{ sub_section.name }}<br/><br/></a> </h4>
+                                            <p class="topmargin_20"> <a href="{{ sub_section.link }}" target="blank" class="theme_button color2 inverse min_width_button">ver más</a> </p>
+                                        </div>
+                                    </article>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

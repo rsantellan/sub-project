@@ -3,11 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\SubAuthority;
+use App\Entity\SubInscription;
 use App\Form\BecaMovilidadType;
 use App\Form\ContactType;
+use App\Form\SubInscriptionType;
 use App\Repository\SubAuthorityRepository;
+use App\Repository\SubSectionsRepository;
 use Maith\Common\AdminBundle\Services\MaithParametersService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\NewsRepository;
 use Maith\Common\AdminBundle\Repository\mAlbumRepository;
@@ -15,6 +19,17 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends AbstractController
 {
+
+    /**
+     * @var ParameterBagInterface
+     */
+    private $parameterBag;
+
+    public function __construct(ParameterBagInterface $parameterBag)
+    {
+        $this->parameterBag = $parameterBag;
+    }
+
     /**
      * @Route("/", name="homepage")
      * @param NewsRepository $newsRepository
@@ -344,5 +359,80 @@ class DefaultController extends AbstractController
             $message->attach($attachment);
         }
         return $mailer->send($message);
+    }
+
+    /**
+     * @Route("/seccionales.html", name="site_seccionales")
+     * @param SubSectionsRepository $subSectionsRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showSeccionales(SubSectionsRepository $subSectionsRepository)
+    {
+        return $this->render('default/seccionales.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'seccionales',
+            'sub_sections' => $subSectionsRepository->findAllByPosition()
+        ]);
+    }
+
+    /**
+     * @Route("/socios.html", name="site_home_socios")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showHomeSocios()
+    {
+        return $this->render('default/homeSocios.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'socios',
+        ]);
+    }
+
+
+    /**
+     * @Route("/socios/inscripcion.html", name="site_socios_inscripcion")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function sociosInscripcion(Request $request, \Swift_Mailer $mailer, MaithParametersService $maithParametersService)
+    {
+        $inscription = new SubInscription();
+        $message = null;
+        $form = $this->createForm(SubInscriptionType::class, $inscription, array(
+            // To set the action use $this->generateUrl('route_identifier')
+            'action' => $this->generateUrl('site_socios_inscripcion'),
+            'method' => 'POST'
+        ));
+        $message = null;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $lastname = $form->get('lastname')->getData();
+            if (empty($lastname)) {
+
+                $file = $form->get('payment')->getData();
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($inscription);
+                $entityManager->flush();
+                $projectDir = $this->parameterBag->get('kernel.project_dir');
+                $dirName = $projectDir.DIRECTORY_SEPARATOR.'inscripciones'.DIRECTORY_SEPARATOR;
+                if (!file_exists($dirName)) {
+                    mkdir($dirName, 0777);
+                }
+                $file->move($dirName, $inscription->getId(). ' - '.$file->getClientOriginalName());
+                $inscription->setPayment($dirName.$inscription->getId(). ' - '.$file->getClientOriginalName());
+                $entityManager->persist($inscription);
+                $entityManager->flush();
+                //$this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
+                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $message = "Mensaje enviado correctamente";
+            } else {
+                $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+            }
+        }
+        return $this->render('default/sociosInscripcion.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'socios',
+            'form' => $form->createView(),
+            'message' => $message,
+        ]);
     }
 }

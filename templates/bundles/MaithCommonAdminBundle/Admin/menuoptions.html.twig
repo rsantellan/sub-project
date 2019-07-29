@@ -54,3 +54,15 @@
 		<span>Seccionales</span>
 	</a>
 </li>
+<li class="{% if (activemenu is defined) and activemenu == 'inscription' %}active{%endif%}">
+	<a href="{{ path('sub_inscription_index')}}">
+		<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+		<span>Inscripciones</span>
+	</a>
+</li>
+<li class="{% if (activemenu is defined) and activemenu == 'sections-inscription' %}active{%endif%}">
+	<a href="{{ path('sub_inscription_sections_index')}}">
+		<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+		<span>Seccionales de inscripción</span>
+	</a>
+</li>

@@ -1,0 +1,51 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Inscripcion {{ sub_inscription.name }}{% endblock %}
+
+{% block body %}
+    <section class="panel panel-color">
+        <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Inscripción: {{ sub_inscription.name }}</header>
+        <div class="panel-body">
+            <div class="table-responsive no-border">
+                <table class="table table-bordered table-striped mg-t datatable dataTable">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ sub_inscription.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ sub_inscription.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Identity</th>
+                        <td>{{ sub_inscription.identity }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ sub_inscription.address }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ sub_inscription.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Level</th>
+                        <td>{{ sub_inscription.level }}</td>
+                    </tr>
+                    <tr>
+                        <th>Startdate</th>
+                        <td>{{ sub_inscription.startdate ? sub_inscription.startdate|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Payment</th>
+                        <td>{{ sub_inscription.payment }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a href="{{ path('sub_inscription_index') }}">back to list</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

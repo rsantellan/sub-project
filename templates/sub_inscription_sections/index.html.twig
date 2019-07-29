@@ -1,0 +1,42 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Listado de Seccionales de inscripcciones{% endblock %}
+
+{% block body %}
+<section class="panel panel-color">
+    <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Secciones</header>
+    <div class="panel-body">
+        <div class="table-responsive no-border">
+            <table class="table table-bordered table-striped mg-t datatable dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for sub_inscription_section in sub_inscription_sections %}
+                    <tr>
+                        <td>{{ sub_inscription_section.id }}</td>
+                        <td>{{ sub_inscription_section.name }}</td>
+                        <td>
+                            <a href="{{ path('sub_inscription_sections_edit', {'id': sub_inscription_section.id}) }}" class="btn btn-success">Editar</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('sub_inscription_sections_new') }}" class="btn btn-info">Crear</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
