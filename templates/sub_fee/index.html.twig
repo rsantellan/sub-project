@@ -1,0 +1,51 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Listado de cuotas{% endblock %}
+
+{% block body %}
+<section class="panel panel-color">
+    <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Cuotas</header>
+    <div class="panel-body">
+        <div class="table-responsive no-border">
+            <table class="table table-bordered table-striped mg-t datatable dataTable">
+        <thead>
+            <tr>
+                <th>Identificador</th>
+                <th>Nombre</th>
+                <th>Documento</th>
+                <th>Email</th>
+                <th>Aprovado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sub_fee in sub_fees %}
+            <tr>
+                <td>{{ sub_fee.id }}</td>
+                <td>{{ sub_fee.name }}</td>
+                <td>{{ sub_fee.identity }}</td>
+                <td>{{ sub_fee.email }}</td>
+                <td>{{ sub_fee.approved ? 'Si' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('sub_fee_show', {'id': sub_fee.id}) }}" class="btn btn-info">Vér</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            {% if sub_fees.haveToPaginate %}
+                <div class="navigation text-center">
+                    {{ pagerfanta(sub_fees, 'twitter_bootstrap3_translated', {routeName: 'sub_fee_index_paginated', routeParams: app.request.query.all}) }}
+                </div>
+            {% endif %}
+
+            <a href="{{ path('sub_fee_export') }}"
+               class="btn btn-warning">Exportar</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

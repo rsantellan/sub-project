@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('sub_fee_approved', {'id': sub_fee.id}) }}" class="pull-right">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="_token" value="{{ csrf_token('approved' ~ sub_fee.id) }}">
+    <button class="btn btn-warning">Cambiar de estado a: {{ sub_fee.approved ? 'No' : 'Si' }}</button>
+</form>

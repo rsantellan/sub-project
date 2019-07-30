@@ -63,6 +63,11 @@ class SubInscription
      */
     private $sections;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $approved;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
@@ -179,6 +184,38 @@ class SubInscription
         if ($this->sections->contains($section)) {
             $this->sections->removeElement($section);
         }
+
+        return $this;
+    }
+
+    public function getLevelAsString() : string
+    {
+        $choices = self::getLevelsCombo();
+        foreach ($choices as $key => $value) {
+            if ($value == $this->getLevel()) {
+                return $key;
+            }
+        }
+        return "";
+    }
+
+    public static function getLevelsCombo(): array
+    {
+        return [
+            'Nivel 1' => SubInscription::LEVEL_ONE,
+            'Nivel 2' => SubInscription::LEVEL_TWO,
+            'Nivel 3' => SubInscription::LEVEL_THREE,
+        ];
+    }
+
+    public function getApproved(): ?bool
+    {
+        return $this->approved;
+    }
+
+    public function setApproved(?bool $approved): self
+    {
+        $this->approved = $approved;
 
         return $this;
     }

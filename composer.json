@@ -21,6 +21,8 @@
         "ext-iconv": "*",
         "friendsofsymfony/user-bundle": "^2.1",
         "imagine/imagine": "1.2.*",
+        "jms/translation-bundle": "1.4.*",
+        "phpoffice/phpspreadsheet": "^1.8",
         "rsantellan/maith-admin": "dev-master",
         "rsantellan/maith-image": "dev-master",
         "rsantellan/maith-translator": "dev-master",
@@ -46,8 +48,7 @@
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/yaml": "4.3.*",
-        "white-october/pagerfanta-bundle": "^1.2",
-        "jms/translation-bundle": "1.4.*"
+        "white-october/pagerfanta-bundle": "^1.2"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

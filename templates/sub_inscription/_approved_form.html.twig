@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('sub_inscription_approved', {'id': sub_inscription.id}) }}" class="pull-right">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="_token" value="{{ csrf_token('approved' ~ sub_inscription.id) }}">
+    <button class="btn btn-warning">Cambiar de estado a: {{ sub_inscription.approved ? 'No' : 'Si' }}</button>
+</form>

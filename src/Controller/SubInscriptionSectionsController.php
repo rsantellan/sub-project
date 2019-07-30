@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/sub/inscription/sections")
+ * @Route("/admin/sub/inscription-sections")
  */
 class SubInscriptionSectionsController extends AbstractController
 {

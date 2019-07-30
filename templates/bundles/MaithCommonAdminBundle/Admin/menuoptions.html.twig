@@ -66,3 +66,9 @@
 		<span>Seccionales de inscripción</span>
 	</a>
 </li>
+<li class="{% if (activemenu is defined) and activemenu == 'sections-fees' %}active{%endif%}">
+	<a href="{{ path('sub_fee_index')}}">
+		<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+		<span>Cuotas</span>
+	</a>
+</li>

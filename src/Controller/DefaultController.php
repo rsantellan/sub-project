@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\SubAuthority;
+use App\Entity\SubFee;
 use App\Entity\SubInscription;
 use App\Form\BecaMovilidadType;
 use App\Form\ContactType;
+use App\Form\SubFeeType;
 use App\Form\SubInscriptionType;
 use App\Repository\SubAuthorityRepository;
 use App\Repository\SubSectionsRepository;
@@ -257,10 +259,12 @@ class DefaultController extends AbstractController
             $data = $form->getData();
             if (empty($data['lastname'])) {
                 $this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasCongresos.html.twig');
-                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
+                $this->addFlash('success', $message);
+                return $this->redirectToRoute('site_becas_congresos');
             } else {
                 $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+                $this->addFlash('error', $message);
             }
         }
         return $this->render('default/becasCongreso.html.twig', [
@@ -290,10 +294,12 @@ class DefaultController extends AbstractController
             $data = $form->getData();
             if (empty($data['lastname'])) {
                 $this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
-                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
+                $this->addFlash('success', $message);
+                return $this->redirectToRoute('site_becas_movilidad');
             } else {
                 $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+                $this->addFlash('error', $message);
             }
         }
         return $this->render('default/becasMovilidad.html.twig', [
@@ -406,29 +412,85 @@ class DefaultController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $lastname = $form->get('lastname')->getData();
             if (empty($lastname)) {
+                if ($inscription->getSections()->count() > 2) {
+                    $message = "Solo se pueden elegir dos secciones";
+                } else {
+                    $file = $form->get('payment')->getData();
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($inscription);
+                    $entityManager->flush();
+                    $projectDir = $this->parameterBag->get('kernel.project_dir');
+                    $dirName = $projectDir.DIRECTORY_SEPARATOR.'inscripciones'.DIRECTORY_SEPARATOR;
+                    if (!file_exists($dirName)) {
+                        mkdir($dirName, 0777);
+                    }
+                    $file->move($dirName, $inscription->getId(). ' - '.$file->getClientOriginalName());
+                    $inscription->setPayment($dirName.$inscription->getId(). ' - '.$file->getClientOriginalName());
+                    $entityManager->persist($inscription);
+                    $entityManager->flush();
+                    //$this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
+                    //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                    $message = "Mensaje enviado correctamente";
+                    $this->addFlash('success', $message);
+                    return $this->redirectToRoute('site_socios_inscripcion');
+                }
+            } else {
+                $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+                $this->addFlash('error', $message);
+            }
+        }
+        return $this->render('default/sociosInscripcion.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'socios',
+            'form' => $form->createView(),
+            'message' => $message,
+        ]);
+    }
+
+    /**
+     * @Route("/socios/cuotas.html", name="site_socios_cuotas")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function sociosCuotas(Request $request, \Swift_Mailer $mailer, MaithParametersService $maithParametersService)
+    {
+        $subFee = new SubFee();
+        $message = null;
+        $form = $this->createForm(SubFeeType::class, $subFee, array(
+            // To set the action use $this->generateUrl('route_identifier')
+            'action' => $this->generateUrl('site_socios_cuotas'),
+            'method' => 'POST'
+        ));
+        $message = null;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $lastname = $form->get('lastname')->getData();
+            if (empty($lastname)) {
 
                 $file = $form->get('payment')->getData();
 
                 $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($inscription);
+                $entityManager->persist($subFee);
                 $entityManager->flush();
                 $projectDir = $this->parameterBag->get('kernel.project_dir');
-                $dirName = $projectDir.DIRECTORY_SEPARATOR.'inscripciones'.DIRECTORY_SEPARATOR;
+                $dirName = $projectDir.DIRECTORY_SEPARATOR.'cuotas'.DIRECTORY_SEPARATOR;
                 if (!file_exists($dirName)) {
                     mkdir($dirName, 0777);
                 }
-                $file->move($dirName, $inscription->getId(). ' - '.$file->getClientOriginalName());
-                $inscription->setPayment($dirName.$inscription->getId(). ' - '.$file->getClientOriginalName());
-                $entityManager->persist($inscription);
+                $file->move($dirName, $subFee->getId(). ' - '.$file->getClientOriginalName());
+                $subFee->setPayment($dirName.$subFee->getId(). ' - '.$file->getClientOriginalName());
+                $entityManager->persist($subFee);
                 $entityManager->flush();
                 //$this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
                 //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
+                $this->addFlash('success', $message);
+                return $this->redirectToRoute('site_socios_cuotas');
             } else {
                 $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+                $this->addFlash('error', $message);
             }
         }
-        return $this->render('default/sociosInscripcion.html.twig', [
+        return $this->render('default/sociosCuotas.html.twig', [
             'controller_name' => 'DefaultController',
             'menu' => 'socios',
             'form' => $form->createView(),

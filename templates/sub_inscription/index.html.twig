@@ -11,14 +11,15 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Identity</th>
-                        <th>Address</th>
+                        <th>Nombre</th>
+                        <th>Cedula</th>
+                        <th>Dirección</th>
                         <th>Email</th>
-                        <th>Level</th>
-                        <th>Startdate</th>
-                        <th>Payment</th>
-                        <th>actions</th>
+                        <th>Nivel</th>
+                        <th>Fecha</th>
+                        <th>Secciones</th>
+                        <th>Aprovado</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,9 +30,16 @@
                             <td>{{ sub_inscription.identity }}</td>
                             <td>{{ sub_inscription.address }}</td>
                             <td>{{ sub_inscription.email }}</td>
-                            <td>{{ sub_inscription.level }}</td>
+                            <td>{{ sub_inscription.levelAsString }}</td>
                             <td>{{ sub_inscription.startdate ? sub_inscription.startdate|date('Y-m-d') : '' }}</td>
-                            <td>{{ sub_inscription.payment }}</td>
+                            <td>
+                                <ul>
+                                {% for section in sub_inscription.sections %}
+                                    <li>{{ section.name }}</li>
+                                {% endfor %}
+                                </ul>
+                            </td>
+                            <td>{{ sub_inscription.approved ? 'Si' : 'No' }}</td>
                             <td>
                                 <a href="{{ path('sub_inscription_show', {'id': sub_inscription.id}) }}"
                                    class="btn btn-info">Mostrar</a>
@@ -49,6 +57,9 @@
                         {{ pagerfanta(sub_inscriptions, 'twitter_bootstrap3_translated', {routeName: 'sub_inscription_index_paginated', routeParams: app.request.query.all}) }}
                     </div>
                 {% endif %}
+
+                <a href="{{ path('sub_inscription_export') }}"
+                   class="btn btn-warning">Exportar</a>
             </div>
         </div>
     </section>

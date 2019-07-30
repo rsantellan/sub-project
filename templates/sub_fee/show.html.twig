@@ -1,0 +1,50 @@
+{% extends 'MaithCommonAdminBundle::adminlayout.html.twig' %}
+
+{% block title %}Cuota {{ sub_fee.name }}{% endblock %}
+
+{% block body %}
+<section class="panel panel-color">
+    <header class="panel-heading text-uppercase"><i class="fa fa-lg fa-cogs"></i>Cuota: {{ sub_fee.name }}</header>
+    <div class="panel-body">
+        <div class="table-responsive no-border">
+            <table class="table table-bordered table-striped mg-t datatable dataTable">
+        <tbody>
+            <tr>
+                <th>Identificador</th>
+                <td>{{ sub_fee.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ sub_fee.name }}</td>
+            </tr>
+            <tr>
+                <th>Documento</th>
+                <td>{{ sub_fee.identity }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ sub_fee.email }}</td>
+            </tr>
+            <tr>
+                <th>Comprobante</th>
+                <td><a href="{{ path('sub_fee_download', {'id': sub_fee.id}) }}"
+                       class="btn btn-info">Descargar</a>
+                    {{ sub_fee.payment }}
+                </td>
+            </tr>
+            <tr>
+                <th>Aprovado</th>
+                <td>
+                    {{ sub_fee.approved ? 'Si' : 'No' }}
+                    {{ include('sub_fee/_approved_form.html.twig') }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sub_fee_index') }}" class="btn btn-default">Volver al listado</a>
+    {{ include('sub_fee/_delete_form.html.twig') }}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
 {% endblock %}
 {% block body %}
+
     <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 socios_bg">
         <div class="container">
             <div class="row">
@@ -12,13 +13,11 @@
             </div>
         </div>
     </section>
-    <section class="ls section_padding_top_100 section_padding_bottom_50">
+    <section class="ls section_padding_top_100 section_padding_bottom_0">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="section_header">{% trans %}socios.inscripcion.titulo{% endtrans %}Inscripción</h2>
-                    {% trans %}socios.inscripcion.texto{% endtrans %}
-                    <p>Aquellos interesados en hacerse socios de la SUB podrán hacerlo completando el formulario a continuación y adjuntando el comprobante de pago  en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001.</p>
+                    <h2 class="section_header"><h2>{% trans %}socios.cuota.titulo{% endtrans %}</h2>Pago de cuota social</h2>
                     {% for message in app.flashes('success') %}
                         <div class="alert alert-success">
                             {{ message }}
@@ -49,42 +48,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group bottommargin_0">
-                                    <label for="{{ form.address.vars.id }}">Dirección Personal<span class="required">*</span></label>
-                                    <i class="fa fa-map-marker highlight2" aria-hidden="true"></i>
-                                    {{ form_widget(form.address, {'attr' : {'class' : 'form-control', 'size' : 255, 'aria-required': 'true'}}) }}
-                                    {{ form_errors(form.address) }}
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group bottommargin_0">
                                     <label for="{{ form.email.vars.id }}">Email<span class="required">*</span></label>
                                     <i class="fa fa-envelope highlight2" aria-hidden="true"></i>
                                     {{ form_widget(form.email, {'attr' : {'class' : 'form-control', 'size' : 30, 'aria-required': 'true'}}) }}
                                     {{ form_errors(form.email) }}
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group bottommargin_0"> <!--<label for="subject">Nivel<span class="required">*</span></label> <i class="fa fa-level-up highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="level" id="subject" class="form-control" placeholder="Nivel">-->
-                                    {{ form_widget(form.level, {'attr' : {'class' : 'form-control'}}) }}
-                                    {{ form_errors(form.level) }}
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group bottommargin_0"> <!--<label for="subject">Seccional<span class="required">*</span></label> <i class="fa fa-pencil highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="seccional" id="seccional" class="form-control" placeholder="Seccional a asociarse (optativo, máximo 2)">-->
-                                    {{ form_widget(form.sections, {'attr' : {'class' : 'form-control'}}) }}
-                                    {{ form_errors(form.sections) }}
-                                </div>
-
-
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="docs-datepicker">
-                                    <div class="form-group bottommargin_0">
-                                        <i class="fa fa-calendar highlight2 highlight2-datapiker" aria-hidden="true"></i>
-                                        {{ form_widget(form.startdate, {'attr' : {'class' : 'form-control'}}) }}
-                                        {{ form_errors(form.startdate) }}
-                                    </div>
-                                    <div class="docs-datepicker-container"></div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -112,11 +79,12 @@
             </div>
         </div>
     </section>
-    <section class="ls section_padding_top_0 section_padding_bottom_75">
+    <section class="ls section_padding_top_30 section_padding_bottom_75">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h4>Pago de cuota social - Montos para año 2019</h4>
+                    {% trans %}socios.cuota.tabla{% endtrans %}
+                    <p>Montos para año 2019</p>
                     <div class="table-responsive">
                         <table class="table_template darklinks" id="timetable">
                             <thead>
@@ -143,8 +111,13 @@
                     </div>
                 </div>
             </div>
+            {% trans %}socios.cuota.notas{% endtrans %}
             <p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>
-
+            <p>Recordamos a los Socios que, según nuestros estatutos, se considera un "Socio Activo" a aquél que ha abonado las cuotas correspondientes a los últimos dos años. Solamente los Socios Activos acceden a los beneficios de la Sociedad, incluyendo la posibilidad de elegir y ser elegible para la Comisión Directiva, el acceso a inscripción bonificada a las Jornadas de la SUB y sus seccionales, el acceso a actividades bonificadas de la <a href="http://www.biologia.org.ar/" target="blank">Sociedad Argentina de Biología</a> y la postulación a <a href="socios-beneficios.php" target="blank">becas de movilidad regional</a>.</p>
+            <p><strong>SOCIO ACTIVO:</strong> Estar al día con las anualidades 2018 y 2019. </p>
+            <p><strong>NUEVOS SOCIOS:</strong> Para asociarse a la SUB se deberán seguir las instrucciones descritas <a href="socios-inscripcion.php" target="_blank">aquí</a></p>
+            <p>El pago de <strong>anualidades atrasadas</strong> se realiza en <strong>PESOS URUGUAYOS al costo de 2019</strong>.</p>
+            <p>El pago de las anualidades debe realizarse en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001 (número de cuenta en formato anterior del BROU: 191-0343382).</p>
         </div>
     </section>
 {% endblock %}

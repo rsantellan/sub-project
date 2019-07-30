@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('sub_inscription_delete', {'id': sub_inscription.id}) }}" onsubmit="return confirm('¿Está seguro de querer borrar la inscripción?');" class="pull-right">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ sub_inscription.id) }}">
+    <button class="btn btn-danger">Borrar</button>
+</form>

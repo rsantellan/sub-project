@@ -2,10 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\SubInscription;
+use App\Entity\SubFee;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -15,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class SubInscriptionType extends AbstractType
+class SubFeeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -31,38 +29,24 @@ class SubInscriptionType extends AbstractType
                     new NotBlank(array("message" => "Ingresa tu Cédula de Indentidad")),
                 )
             ))
-            ->add('address', TextType::class, array('attr' => array('placeholder' => 'Dirección Personal', 'length' => 255),
-                'constraints' => array(
-                    new NotBlank(array("message" => "Ingresa tu Dirección Personal")),
-                )
-            ))
             ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Email'),
                 'constraints' => array(
                     new NotBlank(array("message" => "Ingresa un email")),
                     new Email(array("message" => "Ingresa un email valido")),
                 )
             ))
-            ->add('level', ChoiceType::class, [
-                'choices' => SubInscription::getLevelsCombo(),
-            ])
-            ->add('startdate', DateType::class, [
-                // renders it as a single text box
-                'widget' => 'single_text',
-                'attr' => array('placeholder' => 'Fecha')
-            ])
             ->add('payment', FileType::class, array('multiple' => false, 'attr' => array('placeholder' => 'Talón de pago'),
                 'constraints' => array(
                     new NotBlank(array("message" => "El pago es requerido")),
                 )
             ))
-            ->add('sections')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SubInscription::class,
+            'data_class' => SubFee::class,
         ]);
     }
 }
