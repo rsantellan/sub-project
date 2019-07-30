@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="section_header"><h2>{% trans %}socios.cuota.titulo{% endtrans %}</h2>Pago de cuota social</h2>
+                    <h2 class="section_header"><h2>{% trans %}socios.cuota.titulo{% endtrans %}</h2></h2>
                     {% for message in app.flashes('success') %}
                         <div class="alert alert-success">
                             {{ message }}
@@ -84,40 +84,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     {% trans %}socios.cuota.tabla{% endtrans %}
-                    <p>Montos para año 2019</p>
-                    <div class="table-responsive">
-                        <table class="table_template darklinks" id="timetable">
-                            <thead>
-                            <tr>
-                                <th class="categoria">Categoría</th>
-                                <th>Anualidad ($)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 3</strong><br/>Docentes con DT; grados 4 y 5; Investigadores líderes de grupo; Profesionales</td>
-                                <td>1.600</td>
-                            </tr>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 2</strong><br/>Estudiantes de post-grado; Docentes grado 2 y 3 sin DT; post-docs</td>
-                                <td>950</td>
-                            </tr>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 1</strong><br/>Ayudantes honorarios; docentes grado 1 (no estudiantes de post-grado); estudiantes de pregrado; técnicos de laboratorio.</td>
-                                <td>500</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
             {% trans %}socios.cuota.notas{% endtrans %}
-            <p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>
-            <p>Recordamos a los Socios que, según nuestros estatutos, se considera un "Socio Activo" a aquél que ha abonado las cuotas correspondientes a los últimos dos años. Solamente los Socios Activos acceden a los beneficios de la Sociedad, incluyendo la posibilidad de elegir y ser elegible para la Comisión Directiva, el acceso a inscripción bonificada a las Jornadas de la SUB y sus seccionales, el acceso a actividades bonificadas de la <a href="http://www.biologia.org.ar/" target="blank">Sociedad Argentina de Biología</a> y la postulación a <a href="socios-beneficios.php" target="blank">becas de movilidad regional</a>.</p>
-            <p><strong>SOCIO ACTIVO:</strong> Estar al día con las anualidades 2018 y 2019. </p>
-            <p><strong>NUEVOS SOCIOS:</strong> Para asociarse a la SUB se deberán seguir las instrucciones descritas <a href="socios-inscripcion.php" target="_blank">aquí</a></p>
-            <p>El pago de <strong>anualidades atrasadas</strong> se realiza en <strong>PESOS URUGUAYOS al costo de 2019</strong>.</p>
-            <p>El pago de las anualidades debe realizarse en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001 (número de cuenta en formato anterior del BROU: 191-0343382).</p>
         </div>
     </section>
 {% endblock %}

@@ -34,9 +34,16 @@
             </div>
             <div class="row topmargin_40">
                 <div class="col-sm-12 to_animate">
-                    {%  if message is not null  %}
-                    <div> {{ message }}</div>
-                    {%  endif  %}
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-error">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                     {{ form_start(form, {'attr' : {'class' : 'contact-form columns_padding_5'}}) }}
                         <div class="row">
                             <div class="col-sm-6">

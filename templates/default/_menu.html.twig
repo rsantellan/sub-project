@@ -17,9 +17,9 @@
                     <nav class="mainmenu_wrapper">
                         <ul class="mainmenu nav sf-menu">
                             <li> <a href="{{ path('homepage') }}" class="{% if menu is defined and menu == "inicio" %}current{% endif %}">{% trans %}menu.inicio{% endtrans %}</a></li>
-                            <li> <a href="sub.php" >{% trans %}menu.sub{% endtrans %}</a></li>
+                            <li> <a href="{{ path('site_who_we_are') }}" class="{% if menu is defined and menu == "quienes-somos" %}current{% endif %}">{% trans %}menu.sub{% endtrans %}</a></li>
                             <li> <a href="{{ path('site_seccionales') }}" class="{% if menu is defined and menu == "seccionales" %}current{% endif %}">{% trans %}menu.seccionales{% endtrans %}</a></li>
-                            <li> <a href="{{ path('site_home_socios') }}" class="{% if menu is defined and menu == "socios" %}current{% endif %}">{% trans %}menu.socios{% endtrans %}Socios</a></li>
+                            <li> <a href="{{ path('site_home_socios') }}" class="{% if menu is defined and menu == "socios" %}current{% endif %}">{% trans %}menu.socios{% endtrans %}</a></li>
                             <li> <a href="{{ path('site_authorities') }}" class="{% if menu is defined and menu == "authorities" %}current{% endif %}">{% trans %}menu.autoridades{% endtrans %}</a></li>
                             <li> <a href="congreso.php">Congreso</a></li>
                             <li> <a href="{{  path('newslist') }}" class="{% if menu is defined and menu == "news" %}current{% endif %}">{% trans %}menu.noticias{% endtrans %}</a></li>

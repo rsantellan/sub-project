@@ -165,8 +165,11 @@ class DefaultController extends AbstractController
             if (empty($data['lastname'])) {
                 $this->sendContactEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
                 $message = "Mensaje enviado correctamente";
+                $this->addFlash('success', $message);
+                return $this->redirectToRoute('contactForm');
             } else {
                 $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
+                $this->addFlash('error', $message);
             }
         }
         return $this->render('default/contact.html.twig', [
@@ -495,6 +498,30 @@ class DefaultController extends AbstractController
             'menu' => 'socios',
             'form' => $form->createView(),
             'message' => $message,
+        ]);
+    }
+
+    /**
+     * @Route("/socios/beneficios.html", name="site_socios_beneficios")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showSociosBeneficios()
+    {
+        return $this->render('default/sociosBeneficios.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'socios',
+        ]);
+    }
+
+    /**
+     * @Route("/que-es-la-sub.html", name="site_who_we_are")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showShowWeAre()
+    {
+        return $this->render('default/whoWeAre.html.twig', [
+            'controller_name' => 'DefaultController',
+            'menu' => 'quienes-somos',
         ]);
     }
 }

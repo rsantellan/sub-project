@@ -16,9 +16,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="section_header">{% trans %}socios.inscripcion.titulo{% endtrans %}Inscripción</h2>
+                    <h2 class="section_header">{% trans %}socios.inscripcion.titulo{% endtrans %}</h2>
                     {% trans %}socios.inscripcion.texto{% endtrans %}
-                    <p>Aquellos interesados en hacerse socios de la SUB podrán hacerlo completando el formulario a continuación y adjuntando el comprobante de pago  en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001.</p>
                     {% for message in app.flashes('success') %}
                         <div class="alert alert-success">
                             {{ message }}
@@ -116,35 +115,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h4>Pago de cuota social - Montos para año 2019</h4>
-                    <div class="table-responsive">
-                        <table class="table_template darklinks" id="timetable">
-                            <thead>
-                            <tr>
-                                <th class="categoria">Categoría</th>
-                                <th>Anualidad ($)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 3</strong><br/>Docentes con DT; grados 4 y 5; Investigadores líderes de grupo; Profesionales</td>
-                                <td>1.600</td>
-                            </tr>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 2</strong><br/>Estudiantes de post-grado; Docentes grado 2 y 3 sin DT; post-docs</td>
-                                <td>950</td>
-                            </tr>
-                            <tr>
-                                <td class="categoria"><strong>Nivel 1</strong><br/>Ayudantes honorarios; docentes grado 1 (no estudiantes de post-grado); estudiantes de pregrado; técnicos de laboratorio.</td>
-                                <td>500</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    {% trans %}socios.inscripcion.tabla{% endtrans %}
                 </div>
             </div>
-            <p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>
-
+            {% trans %}socios.inscripcion.nota{% endtrans %}
         </div>
     </section>
 {% endblock %}

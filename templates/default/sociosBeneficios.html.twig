@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 socios_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>{% trans %}socios.titulo{% endtrans %}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ls section_padding_top_100 section_padding_bottom_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section_header">{% trans %}socios.beneficio.titulo{% endtrans %}</h2>
+                    {% trans %}socios.beneficio.texto{% endtrans %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

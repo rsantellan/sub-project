@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h2>{% trans %}socios.titulo{% endtrans %}Socios</h2>
+                    <h2>{% trans %}socios.titulo{% endtrans %}</h2>
                 </div>
             </div>
         </div>
@@ -16,7 +16,6 @@
                 <div class="col-sm-12">
                     <h2 class="section_header">{% trans %}socios.titulo{% endtrans %}</h2>
                     {% trans %}socios.texto{% endtrans %}
-                    <p>Toda persona mayor de edad puede ser socio de la SUB. Se considera Socio Activo a aquél que está al día con las anualidades de los dos últimos años. <br/>Quien no esté al día continúa siendo Socio, pero se encuentra suspendido hasta regularice su situación.</p>
                     <section class="ls section_padding_top_40 section_padding_bottom_65">
                         <div class="container">
                             <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
@@ -24,7 +23,7 @@
                                     <article class="vertical-item content-padding with_border rounded text-center">
                                         <div class="item-content">
                                             <h4> <a href="socios-beneficios.php">BENEFICIOS</a> </h4>
-                                            <p class="topmargin_20"> <a href="socios-beneficios.php" class="theme_button color2 inverse min_width_button">ver más</a> </p>
+                                            <p class="topmargin_20"> <a href="{{ path('site_socios_beneficios') }}" class="theme_button color2 inverse min_width_button">ver más</a> </p>
                                         </div>
                                     </article>
                                 </div>
