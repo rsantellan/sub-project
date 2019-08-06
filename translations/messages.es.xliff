@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2019-07-30T11:16:53Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2019-08-06T12:14:53Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -156,6 +156,76 @@
         <source>contact.ubicacion</source>
         <target><![CDATA[Instituto de Inv. Biológicas Clemente Estable<br/>Avenida Italia 3318, CP 11600</br>Montevideo]]></target>
         <jms:reference-file line="25">/../../../../../../.././templates/default/contact.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4e343563821ff930834ab2260df6039d2a79569a" resname="home.autoridades.texto">
+        <source>home.autoridades.texto</source>
+        <target>Autoridades electas, período 2017-2019</target>
+        <jms:reference-file line="27">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6195d5921e66019ee1ff132f25679d5b7e895730" resname="home.autoridades.titulo">
+        <source>home.autoridades.titulo</source>
+        <target>Autoridades</target>
+        <jms:reference-file line="26">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eec77ca48010b333b1dcc33201f90a961eeb2b3e" resname="home.autoridades.ver">
+        <source>home.autoridades.ver</source>
+        <target>ver autoridades</target>
+        <jms:reference-file line="28">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ec2c4ac409f387ce33a66deac17ec6e87d16882e" resname="home.becas.texto">
+        <source>home.becas.texto</source>
+        <target>Consetetur sadipscing elitr sediam nonumy eirmod tempor invidunt labore magna.</target>
+        <jms:reference-file line="43">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3bdb570f4c1010f3d172a7a6b9a87cca4b4082b0" resname="home.becas.titulo">
+        <source>home.becas.titulo</source>
+        <target>Becas</target>
+        <jms:reference-file line="42">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fc6ebcf7a17395f6b12007e65751d221dc4e791e" resname="home.becas.ver">
+        <source>home.becas.ver</source>
+        <target>ver becas</target>
+        <jms:reference-file line="44">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c52fc2766b06f839ea995a8dfdbb401ce37467a4" resname="home.congreso.texto">
+        <source>home.congreso.texto</source>
+        <target>Al igual que en el Congreso 2017 participarán todas las seccionales que conforman la SUB, las Sociedades Científicas colegas que se unieron en el gran esfuerzo de dicho congreso, más otras que esperamos invitar en forma activa. Las puertas están abiertas a toda la comunidad científica que trabaja en biociencias y a todos aquellos que deseen participar. Esperamos expandir las temáticas, la transversalidad y el número de expositores para maximizar lo académico, los esfuerzos y los recursos económicos. Buscamos además involucrar a todos los sectores de la sociedad, en particular al educativo.</target>
+        <jms:reference-file line="56">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c798418703a609e376a9f9ac106dc7925d8053a0" resname="home.congreso.titulo">
+        <source>home.congreso.titulo</source>
+        <target>Congreso</target>
+        <jms:reference-file line="55">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="39cfb60d2ec029105622569885b575befe4a52a5" resname="home.noticias.titulo">
+        <source>home.noticias.titulo</source>
+        <target>Noticias</target>
+        <jms:reference-file line="67">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="03899954a9944dd1ac7c97014b99cb890a03eb34" resname="home.seccionales.texto">
+        <source>home.seccionales.texto</source>
+        <target>Las seccionales de la SUB están integradas por grupos de socios nucleados en torno a un área particular dentro de las Biociencias, o que se encuentran en determinada región del país.</target>
+        <jms:reference-file line="35">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3903cf87b6b30612ceafdcc368c1c02733d428b4" resname="home.seccionales.titulo">
+        <source>home.seccionales.titulo</source>
+        <target>Seccionales</target>
+        <jms:reference-file line="34">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7cab0a5bd8de1b108514841b03ed184ce481f53d" resname="home.seccionales.ver">
+        <source>home.seccionales.ver</source>
+        <target>ver seccionales</target>
+        <jms:reference-file line="36">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c55855ad69c5b45cd67585d33f59ac8620654896" resname="home.sub.texto">
+        <source>home.sub.texto</source>
+        <target>La Sociedad Uruguaya de Biociencias es una asociación civil sin fines de lucro, con personería jurídica, y que tiene su sede en Montevideo, Uruguay.</target>
+        <jms:reference-file line="19">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="31c98fcefdddd0fff5be9388ffc6d8ef53c5f2ac" resname="home.sub.titulo">
+        <source>home.sub.titulo</source>
+        <target>¿Qué es la SUB?</target>
+        <jms:reference-file line="18">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8d44d8ef15c4cd9b04f451a1352e45664da1574d" resname="maith_images_admin_sortable_title">
         <source>maith_images_admin_sortable_title</source>
