@@ -51,7 +51,7 @@ class DefaultController extends AbstractController
             $avatar = $albumRepository->retrieveFirstFileOfAlbum($news->getId(), $news->getFullClassName(), 'principal');
             if ($avatar) {
                 $mediaData[$news->getId()] = $avatar;
-                $firstNew = $news;
+                //$firstNew = $news;
             }
         }
         $secondNew = null;
@@ -68,7 +68,7 @@ class DefaultController extends AbstractController
             $avatar = $albumRepository->retrieveFirstFileOfAlbum($news->getId(), $news->getFullClassName(), 'principal');
             if ($avatar) {
                 $mediaData[$news->getId()] = $avatar;
-                $secondNew = $news;
+                //$secondNew = $news;
             }
         }
         return $this->render('default/index.html.twig', [
