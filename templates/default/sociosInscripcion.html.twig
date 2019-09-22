@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script src="{{ asset('js/socios.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 {% endblock %}
 {% block body %}
     <section class="page_breadcrumbs cs section_padding_top_50 section_padding_bottom_50 socios_bg">
