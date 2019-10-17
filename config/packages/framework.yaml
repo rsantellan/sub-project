@@ -18,6 +18,6 @@ framework:
 
     assets:
         version: 'v1'
-        
+
     templating:
         engines: ['twig', 'php']

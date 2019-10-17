@@ -38,11 +38,10 @@
                                         <div class="isotope-item col-lg-4 col-md-6 col-sm-12 medical">
                                             <div class="vertical-item gallery-item content-absolute text-center ds">
                                                 <div class="item-media">
-                                                    {% set imageUrl = file.fullPath | mImage(1170, 780, 'rce') %}
-                                                    <img src="{{ imageUrl }}" width="1170" height="780" alt="{{ object.title }}" />
+                                                    <img src="{{ file.fullPath | mImage(350, 270, 'rce') }}" alt="{{ object.title }}" />
                                                     <div class="media-links">
                                                         <div class="links-wrap">
-                                                            <a class="p-view prettyPhoto " title="{{ object.title }}" data-gal="prettyPhoto[gal]" href="{{ imageUrl }}"></a>
+                                                            <a class="p-view prettyPhoto " title="{{ object.title }}" data-gal="prettyPhoto[gal]" href="{{ file.fullPath | mImage(1170, 780, 'rce') }}"></a>
                                                         </div>
                                                     </div>
                                                 </div>
