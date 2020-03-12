@@ -1,0 +1,6 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^sub\.rodrigosantellan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sub\.rodrigosantellan\.com$
+RewriteRule ^/?$ "http\:\/\/sub\.rodrigosantellan\.com\/index\.php" [R=301,L]
+

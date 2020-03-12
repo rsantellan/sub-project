@@ -1,9 +1,9 @@
 parameters:
-    contact-email-from: info@info.com
-    contact-email-from-name: 'Rodrigo Santellan'
-    contact-email-to: info@info.com
-    contact-email-subject: '[SUM] Contacto desde sitio web'
-    becas-email-from: info@info.com
-    becas-email-from-name: 'Rodrigo Santellan'
-    becas-email-to: info@info.com
-    becas-email-subject: '[SUM] Becas'
+    contact-email-from: laura@lauranozar.com
+    contact-email-from-name: 'Sociedad Uruguaya de Microbiología'
+    contact-email-to: laura@lauranozar.com
+    contact-email-subject: '[SUB] Contacto desde sitio web'
+    becas-email-from: laura@lauranozar.com
+    becas-email-from-name: 'Sociedad Uruguaya de Microbiología'
+    becas-email-to: laura@lauranozar.com
+    becas-email-subject: '[SUB] Becas'

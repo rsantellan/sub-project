@@ -68,7 +68,7 @@
 
                 {% if sub_authorities.haveToPaginate %}
                     <div class="navigation text-center">
-                        {{ pagerfanta(news, 'twitter_bootstrap3_translated', {routeName: 'sub_authority_paginated', routeParams: app.request.query.all}) }}
+                        {{ pagerfanta(sub_authorities, 'twitter_bootstrap3_translated', {routeName: 'sub_authority_paginated', routeParams: app.request.query.all}) }}
                     </div>
                 {% endif %}
 
