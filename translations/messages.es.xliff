@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2019-08-06T12:14:53Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2020-03-12T08:51:12Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -186,6 +186,16 @@
         <source>home.becas.ver</source>
         <target>ver becas</target>
         <jms:reference-file line="44">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1c38f955ba7aacab7613dd26eb680803c34d915c" resname="home.congreso.image">
+        <source>home.congreso.image</source>
+        <target><![CDATA[ <img src="http://sub.rodrigosantellan.com/images/congreso/thumb-home.jpg?v1" alt="" class="rounded"> ]]></target>
+        <jms:reference-file line="53">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c426c4a1a0d6dda7eb4480909f895be2e3496b40" resname="home.congreso.link">
+        <source>home.congreso.link</source>
+        <target><![CDATA[ <a href="http://biociencias2019.uy/" target="_blank" class="theme_button color2 inverse">ver más</a> ]]></target>
+        <jms:reference-file line="57">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c52fc2766b06f839ea995a8dfdbb401ce37467a4" resname="home.congreso.texto">
         <source>home.congreso.texto</source>
@@ -388,7 +398,7 @@
       <trans-unit id="87eb6fb9862180f09a1f1a32a5906b4e157a90c3" resname="socios.inscripcion.nota">
         <source>socios.inscripcion.nota</source>
         <target><![CDATA[<p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>]]></target>
-        <jms:reference-file line="121">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="125">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9e14fe5fbf4c90769ab988c2e6bfd54b5d3c0cd1" resname="socios.inscripcion.tabla">
         <source>socios.inscripcion.tabla</source>
@@ -417,17 +427,17 @@
                             </tbody>
                         </table>
                     </div>]]></target>
-        <jms:reference-file line="118">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="122">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ef932095401b4dee7a6e5bc54358f2bd1c0128f2" resname="socios.inscripcion.texto">
         <source>socios.inscripcion.texto</source>
         <target><![CDATA[<p>Aquellos interesados en hacerse socios de la SUB podrán hacerlo completando el formulario a continuación y adjuntando el comprobante de pago  en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001.</p>]]></target>
-        <jms:reference-file line="20">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="329057add9f85fa72a4f07d8361359629104cb5e" resname="socios.inscripcion.titulo">
         <source>socios.inscripcion.titulo</source>
         <target>Inscripción</target>
-        <jms:reference-file line="19">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3234f1d5aae2026cf5243b2cbe8628498ab6c507" resname="socios.texto">
         <source>socios.texto</source>
@@ -441,7 +451,7 @@
         <jms:reference-file line="8">/../../../../../../.././templates/default/homeSocios.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../../../.././templates/default/sociosBeneficios.html.twig</jms:reference-file>
         <jms:reference-file line="11">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
-        <jms:reference-file line="10">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>
