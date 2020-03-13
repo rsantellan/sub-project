@@ -64,7 +64,16 @@ ul.listados{
 ul.listados li{
 	list-style-type: none;
 	padding-bottom: 15px;
-}
+	color: #80ca8d;
+	}
+	ul.listados li span{
+		font-family: 'Roboto', sans-serif;
+		color: #919899;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 24px;
+		padding-left: 5px;
+	}
 	ul.listados li > i{
 		padding-right: 5px;
 		color: #80ca8d;
@@ -91,8 +100,4 @@ h4 span{
 	position: absolute;
 	left: 30px;
 	top: 12px;
-}
-
-.article-seccionales{
-	min-height: 450px;
 }
