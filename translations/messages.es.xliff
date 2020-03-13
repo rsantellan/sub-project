@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2020-03-12T08:51:12Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2019-12-12T15:00:34Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -108,20 +108,29 @@
       <trans-unit id="6e4cfe18318b116c84e8d32b369904b4456b0df1" resname="becas.movilidad.texto">
         <source>becas.movilidad.texto</source>
         <target><![CDATA[<h2 class="section_header">Becas de Movilidad Regional</h2>
-                    <p>Para socios activos de la Sociedad Uruguaya de Biociencias (SUB)</p>
-                    <p>Los rubros a financiar son asistencia a congresos o pasantías (inscripciones a congresos, pasajes, viáticos) Aunque no es excluyente, se dará preferencia a actividades en la región (Argentina, Brasil, Chile, Paraguay).</p>
-                    <p><strong>Requisitos:</strong></p>
-                    <ul class="listados">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Estar inscriptos en un programa de posgrado nacional</li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulación (estar al día en las cuotas de los últimos dos años)</li>
-                    </ul>
-                    <h4>Llamado abierto</h4>
-                    <p>Los rubros a financiar son asistencia a congresos o pasantías (inscripciones a congresos, pasajes, viáticos) a realizarse entre el X/X y el X/X de 20XX. El máximo a adjudicar será de USD XXX por persona y, aunque no es excluyente, se dará preferencia a actividades en la región (Argentina, Brasil, Chile, Paraguay).</p>
-                    <p><strong>Requisitos:</strong></p>
-                    <ul class="listados">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Estar inscriptos en un programa de posgrado nacional</li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulación (estar al día en las cuotas de los últimos dos años)</li>
-                    </ul>]]></target>
+
+<p>Para socios activos de la Sociedad Uruguaya de Biociencias (SUB)</p>
+
+<p>Los rubros a financiar son asistencia a congresos o pasant&iacute;as (inscripciones a congresos, pasajes, vi&aacute;ticos) Aunque no es excluyente, se dar&aacute; preferencia a actividades en la regi&oacute;n (Argentina, Brasil, Chile, Paraguay).</p>
+
+<p><strong>Requisitos:</strong></p>
+
+<ul class="listados">
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Estar inscriptos en un programa de posgrado nacional</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulaci&oacute;n (estar al d&iacute;a en las cuotas de los &uacute;ltimos dos a&ntilde;os)</li>
+</ul>
+
+<h4>Llamado cerrado</h4>
+
+<p>Los rubros a financiar son asistencia a congresos o pasant&iacute;as (inscripciones a congresos, pasajes, vi&aacute;ticos) a realizarse entre el X/X y el X/X de 20XX. El m&aacute;ximo a adjudicar ser&aacute; de USD XXX por persona y, aunque no es excluyente, se dar&aacute; preferencia a actividades en la regi&oacute;n (Argentina, Brasil, Chile, Paraguay).</p>
+
+<p><strong>Requisitos:</strong></p>
+
+<ul class="listados">
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Estar inscriptos en un programa de posgrado nacional</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Postulante y Orientador deben ser socios activos de la SUB al momento de la postulaci&oacute;n (estar al d&iacute;a en las cuotas de los &uacute;ltimos dos a&ntilde;os)</li>
+</ul>
+]]></target>
         <jms:reference-file line="17">/../../../../../../.././templates/default/becasMovilidad.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="42bee8135b87aa2b5fd01ea1762c0f253381a00f" resname="becas.movilidad.titulo">
@@ -174,7 +183,7 @@
       </trans-unit>
       <trans-unit id="ec2c4ac409f387ce33a66deac17ec6e87d16882e" resname="home.becas.texto">
         <source>home.becas.texto</source>
-        <target>Consetetur sadipscing elitr sediam nonumy eirmod tempor invidunt labore magna.</target>
+        <target>Becas de Movilidad Regional y Becas para el Congreso Nacional de Biociencias.</target>
         <jms:reference-file line="43">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3bdb570f4c1010f3d172a7a6b9a87cca4b4082b0" resname="home.becas.titulo">
@@ -187,19 +196,11 @@
         <target>ver becas</target>
         <jms:reference-file line="44">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="1c38f955ba7aacab7613dd26eb680803c34d915c" resname="home.congreso.image">
-        <source>home.congreso.image</source>
-        <target><![CDATA[ <img src="http://sub.rodrigosantellan.com/images/congreso/thumb-home.jpg?v1" alt="" class="rounded"> ]]></target>
-        <jms:reference-file line="53">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="c426c4a1a0d6dda7eb4480909f895be2e3496b40" resname="home.congreso.link">
-        <source>home.congreso.link</source>
-        <target><![CDATA[ <a href="http://biociencias2019.uy/" target="_blank" class="theme_button color2 inverse">ver más</a> ]]></target>
-        <jms:reference-file line="57">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="c52fc2766b06f839ea995a8dfdbb401ce37467a4" resname="home.congreso.texto">
         <source>home.congreso.texto</source>
-        <target>Al igual que en el Congreso 2017 participarán todas las seccionales que conforman la SUB, las Sociedades Científicas colegas que se unieron en el gran esfuerzo de dicho congreso, más otras que esperamos invitar en forma activa. Las puertas están abiertas a toda la comunidad científica que trabaja en biociencias y a todos aquellos que deseen participar. Esperamos expandir las temáticas, la transversalidad y el número de expositores para maximizar lo académico, los esfuerzos y los recursos económicos. Buscamos además involucrar a todos los sectores de la sociedad, en particular al educativo.</target>
+        <target><![CDATA[El II Congreso Nacional de Biociencias tuvo lugar entre el 4 y el 7 de setiembre de 2019 en en el Radisson Montevideo Victoria Plaza Hotel. Participaron todas las seccionales que conforman la SUB, junto a Sociedades Cient&Igrave;ficas colegas que se unieron en el gran esfuerzo de dicho congreso.&nbsp;<br />
+<br />
+Adem&aacute;s de las conferencias plenarias y actividades transversales entre seccionales, el II Congreso Nacional de Biociencias reuni&oacute; los diferentes congresos y jornadas de cada seccional que forma parte de la SUB, y de Sociedades Cient&iacute;ficas colegas.]]></target>
         <jms:reference-file line="56">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c798418703a609e376a9f9ac106dc7925d8053a0" resname="home.congreso.titulo">
@@ -286,23 +287,30 @@
       </trans-unit>
       <trans-unit id="b1b8d6d324f494d856d40ca4a570dd8f540d217b" resname="quienessomos.texto">
         <source>quienessomos.texto</source>
-        <target><![CDATA[<p>La Sociedad Uruguaya de Biociencias es una asociación civil sin fines de lucro, con personería jurídica, y que tiene su sede en Montevideo, Uruguay.</p>
-							<h4>Historia</h4>
-							<!--<h4 class="highlight">Undergraduate Biology Research Assistant (Internship)</h4>-->
-							<p>Hace más de 30 años, en un escenario bastante más despoblado que el actual (sin PEDECIBA ni Facultad de Ciencias, sin maestrandos ni doctorandos), un pequeño grupo de personas vinculadas de diferente forma a distintas disciplinas de la Biología se reunían para llevar a cabo la asamblea fundacional de la Sociedad Uruguaya de Biociencias. En esta reunión, el 3 de noviembre de 1982 un heterogéneo grupo de unos cincuenta investigadores, docentes, y estudiantes provenientes del IIBCE y las Facultades de Medicina, Humanidades y Ciencias, Veterinaria y Agronomía, definieron los fines de la asociación y eligieron nuestra primer Comisión Directiva y Fiscal.</p>
-							<h4>Objetivos</h4>
-							<p>Según sus estatutos, la SUB tiene los siguientes fines:</p>
-							<ul class="listados">
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Reunir y vincular a las personas que se dedican a las diferentes ramas de las Biociencias, organizando actos científicos tales como la presentación de trabajos, coloquios, mesas redondas, talleres de trabajo, conferencias, etc.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Promover e incentivar el estudio, la enseñanza y la investigación en las Biociencias.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Facilitar el intercambio de informaciones y experiencias, estimulando las producciones con valor científico, y su divulgación y publicación, sistemática y programada, en el ámbito socio-cultural del País.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Promover actividades que signifiquen progreso para las áreas de las Biociencias nacionales, teóricas y aplicadas, procurando que tanto la acción colectiva como la individual se rijan por estrictos principios éticos.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Promover la vinculación con organismos y sociedades científicas nacionales e internacionales dedicadas a los mismos fines que esta Sociedad, así como auspiciar y facilitar la realización de actividades conjuntas con las mismas.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Asesorar, cuando se le requiera, a personas o instituciones del Estado o privadas.</li>
-								<li><i class="fa fa-chevron-right" aria-hidden="true"></i>Crear Seccionales integradas por socios con la misma especialidad en un área de las Biociencias o por residentes en una misma área geográfica del País.</li>
-							</ul>
-							<h4>Estatutos</h4>
-							<p>Descargue los estatutos de la Sociedad en pdf <a href="https://docs.google.com/a/fcien.edu.uy/viewer?a=v&pid=sites&srcid=ZmNpZW4uZWR1LnV5fHN1YnxneDo2MTFlMmZkMmVmZDZkMGEz" target="blank">aquí</a>.</p>
+        <target><![CDATA[<p>La Sociedad Uruguaya de Biociencias es una asociaci&oacute;n civil sin fines de lucro, con personer&iacute;a jur&iacute;dica, y que tiene su sede en Montevideo, Uruguay.</p>
+
+<h4>Historia</h4>
+<!--<h4 class="highlight">Undergraduate Biology Research Assistant (Internship)</h4>-->
+
+<p>Hace m&aacute;s de 30 a&ntilde;os, en un escenario bastante m&aacute;s despoblado que el actual (sin PEDECIBA ni Facultad de Ciencias, sin maestrandos ni doctorandos), un peque&ntilde;o grupo de personas vinculadas de diferente forma a distintas disciplinas de la Biolog&iacute;a se reun&iacute;an para llevar a cabo la asamblea fundacional de la Sociedad Uruguaya de Biociencias. En esta reuni&oacute;n, el 3 de noviembre de 1982 un heterog&eacute;neo grupo de unos cincuenta investigadores, docentes, y estudiantes provenientes del IIBCE y las Facultades de Medicina, Humanidades y Ciencias, Veterinaria y Agronom&iacute;a, definieron los fines de la asociaci&oacute;n y eligieron nuestra primer Comisi&oacute;n Directiva y Fiscal.</p>
+
+<h4>Objetivos</h4>
+
+<p>Seg&uacute;n sus estatutos, la SUB tiene los siguientes fines:</p>
+
+<ul class="listados">
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Reunir y vincular a las personas que se dedican a las diferentes ramas de las Biociencias, organizando actos cient&iacute;ficos tales como la presentaci&oacute;n de trabajos, coloquios, mesas redondas, talleres de trabajo, conferencias, etc.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Promover e incentivar el estudio, la ense&ntilde;anza y la investigaci&oacute;n en las Biociencias.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Facilitar el intercambio de informaciones y experiencias, estimulando las producciones con valor cient&iacute;fico, y su divulgaci&oacute;n y publicaci&oacute;n, sistem&aacute;tica y programada, en el &aacute;mbito socio-cultural del Pa&iacute;s.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Promover actividades que signifiquen progreso para las &aacute;reas de las Biociencias nacionales, te&oacute;ricas y aplicadas, procurando que tanto la acci&oacute;n colectiva como la individual se rijan por estrictos principios &eacute;ticos.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Promover la vinculaci&oacute;n con organismos y sociedades cient&iacute;ficas nacionales e internacionales dedicadas a los mismos fines que esta Sociedad, as&iacute; como auspiciar y facilitar la realizaci&oacute;n de actividades conjuntas con las mismas.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Asesorar, cuando se le requiera, a personas o instituciones del Estado o privadas.</li>
+	<li><i aria-hidden="true" class="fa fa-chevron-right"></i>Crear Seccionales integradas por socios con la misma especialidad en un &aacute;rea de las Biociencias o por residentes en una misma &aacute;rea geogr&aacute;fica del Pa&iacute;s.</li>
+</ul>
+
+<h4>Estatutos</h4>
+
+<p>Descargue los estatutos de la Sociedad en pdf <a href="https://docs.google.com/a/fcien.edu.uy/viewer?a=v&amp;pid=sites&amp;srcid=ZmNpZW4uZWR1LnV5fHN1YnxneDo2MTFlMmZkMmVmZDZkMGEz" target="blank">aqu&iacute;</a>.</p>
 ]]></target>
         <jms:reference-file line="18">/../../../../../../.././templates/default/whoWeAre.html.twig</jms:reference-file>
       </trans-unit>
@@ -398,7 +406,7 @@
       <trans-unit id="87eb6fb9862180f09a1f1a32a5906b4e157a90c3" resname="socios.inscripcion.nota">
         <source>socios.inscripcion.nota</source>
         <target><![CDATA[<p>NOTA: Desde 2014 se ajustarán las cuotas anualmente, rigiendo una escala única para el año que corre y los años atrasados.</p>]]></target>
-        <jms:reference-file line="125">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="121">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9e14fe5fbf4c90769ab988c2e6bfd54b5d3c0cd1" resname="socios.inscripcion.tabla">
         <source>socios.inscripcion.tabla</source>
@@ -427,17 +435,17 @@
                             </tbody>
                         </table>
                     </div>]]></target>
-        <jms:reference-file line="122">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ef932095401b4dee7a6e5bc54358f2bd1c0128f2" resname="socios.inscripcion.texto">
         <source>socios.inscripcion.texto</source>
         <target><![CDATA[<p>Aquellos interesados en hacerse socios de la SUB podrán hacerlo completando el formulario a continuación y adjuntando el comprobante de pago  en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001.</p>]]></target>
-        <jms:reference-file line="24">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="329057add9f85fa72a4f07d8361359629104cb5e" resname="socios.inscripcion.titulo">
         <source>socios.inscripcion.titulo</source>
         <target>Inscripción</target>
-        <jms:reference-file line="23">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3234f1d5aae2026cf5243b2cbe8628498ab6c507" resname="socios.texto">
         <source>socios.texto</source>
@@ -451,7 +459,7 @@
         <jms:reference-file line="8">/../../../../../../.././templates/default/homeSocios.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../../../.././templates/default/sociosBeneficios.html.twig</jms:reference-file>
         <jms:reference-file line="11">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
-        <jms:reference-file line="14">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/../../../../../../.././templates/default/sociosInscripcion.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>
