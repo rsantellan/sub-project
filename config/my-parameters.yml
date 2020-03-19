@@ -7,3 +7,11 @@ parameters:
     becas-email-from-name: 'Sociedad Uruguaya de Microbiología'
     becas-email-to: laura@lauranozar.com
     becas-email-subject: '[SUB] Becas'
+    socios-inscription-email-from: laura@lauranozar.com
+    socios-inscription-email-from-name: 'Sociedad Uruguaya de Microbiología'
+    socios-inscription-email-to: laura@lauranozar.com
+    socios-inscription-email-subject: '[SUB] Socios inscripción'
+    socios-cuota-email-from: laura@lauranozar.com
+    socios-cuota-email-from-name: 'Sociedad Uruguaya de Microbiología'
+    socios-cuota-email-to: laura@lauranozar.com
+    socios-cuota-email-subject: '[SUB] Socios cuota

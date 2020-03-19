@@ -431,8 +431,9 @@ class DefaultController extends AbstractController
                     $inscription->setPayment($dirName.$inscription->getId(). ' - '.$file->getClientOriginalName());
                     $entityManager->persist($inscription);
                     $entityManager->flush();
-                    //$this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
-                    //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                    $data = $form->getData();
+                    $this->sendSocioInscripcionEmail($maithParametersService, $mailer, $data);
+
                     $message = "Mensaje enviado correctamente";
                     $this->addFlash('success', $message);
                     return $this->redirectToRoute('site_socios_inscripcion');
@@ -448,6 +449,42 @@ class DefaultController extends AbstractController
             'form' => $form->createView(),
             'message' => $message,
         ]);
+    }
+
+    /**
+     * @param MaithParametersService $maithParametersService
+     * @param \Swift_Mailer $mailer
+     * @param \App\Entity\SubInscription $subInscription
+     * @return int
+     */
+    private function sendSocioInscripcionEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubInscription $subInscription)
+    {
+        $email = $subInscription->getEmail();
+        $name = $subInscription->getName();
+        $document = $subInscription->getIdentity();
+        $address = $subInscription->getAddress();
+        $suscriptionDate = $subInscription->getStartdate()->format('d/m/y');
+        $from = [$maithParametersService->getParameter('socios-inscription-email-from') => $maithParametersService->getParameter('socios-inscription-email-from-name')];
+        $message = (new \Swift_Message($maithParametersService->getParameter('socios-inscription-email-subject')))
+            ->setFrom($from)
+            ->setTo($maithParametersService->getParameter('socios-inscription-email-to'))
+            ->setReplyTo($email)
+            ->setBody(
+                $this->renderView(
+                    'emails/socioInscripcion.html.twig',
+                    [
+                        'name' => $name,
+                        'document' => $document,
+                        'email' => $email,
+                        'address' => $address,
+                        'suscriptionDate' => $suscriptionDate
+                    ]
+                ),
+                'text/html'
+            )
+        ;
+
+        return $mailer->send($message);
     }
 
     /**
@@ -499,6 +536,38 @@ class DefaultController extends AbstractController
             'form' => $form->createView(),
             'message' => $message,
         ]);
+    }
+
+    /**
+     * @param MaithParametersService $maithParametersService
+     * @param \Swift_Mailer $mailer
+     * @param \App\Entity\SubInscription $subFee
+     * @return int
+     */
+    private function sendSocioCuotaEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubFee $subFee)
+    {
+        $email = $subFee->getEmail();
+        $name = $subFee->getName();
+        $document = $subFee->getIdentity();
+        $from = [$maithParametersService->getParameter('socios-cuota-email-from') => $maithParametersService->getParameter('socios-cuota-email-from-name')];
+        $message = (new \Swift_Message($maithParametersService->getParameter('socios-cuota-email-subject')))
+            ->setFrom($from)
+            ->setTo($maithParametersService->getParameter('socios-cuota-email-to'))
+            ->setReplyTo($email)
+            ->setBody(
+                $this->renderView(
+                    'emails/socioCuota.html.twig',
+                    [
+                        'name' => $name,
+                        'document' => $document,
+                        'email' => $email
+                    ]
+                ),
+                'text/html'
+            )
+        ;
+
+        return $mailer->send($message);
     }
 
     /**
