@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\SubAuthority;
 use App\Entity\SubFee;
 use App\Entity\SubInscription;
+use App\Entity\SubInscriptionSections;
 use App\Form\BecaMovilidadType;
 use App\Form\ContactType;
 use App\Form\SubFeeType;
@@ -328,30 +329,28 @@ class DefaultController extends AbstractController
         $program = $data['program'];
         $message = $data['message'];
         $from = [$maithParametersService->getParameter('becas-email-from') => $maithParametersService->getParameter('becas-email-from-name')];
+        $params = [
+            'name' => $name,
+            'telephone' => $telephone,
+            'email' => $email,
+            'message' => $message,
+            'institution' => $institution,
+            'program' => $program,
+            'cv' => '',
+            'scholarship' => '',
+            'letter' => ''
+        ];
         $message = (new \Swift_Message($maithParametersService->getParameter('becas-email-subject')))
             ->setFrom($from)
             ->setTo($maithParametersService->getParameter('becas-email-to'))
             ->setReplyTo($email)
-            ->setBody(
-                $this->renderView(
-                    'emails/becasMovilidad.html.twig',
-                    [
-                        'name' => $name,
-                        'telephone' => $telephone,
-                        'email' => $email,
-                        'message' => $message,
-                        'institution' => $institution,
-                        'program' => $program,
-                    ]
-                ),
-                'text/html'
-            )
         ;
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
         foreach($data['cv'] as $fileUploaded) {
             $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
             $attachment->setFilename($fileUploaded->getClientOriginalName());
             $message->attach($attachment);
+            $params['cv'] = $fileUploaded->getClientOriginalName();
         }
 
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
@@ -359,6 +358,7 @@ class DefaultController extends AbstractController
             $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
             $attachment->setFilename($fileUploaded->getClientOriginalName());
             $message->attach($attachment);
+            $params['scholarship'] = $fileUploaded->getClientOriginalName();
         }
 
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
@@ -366,7 +366,18 @@ class DefaultController extends AbstractController
             $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
             $attachment->setFilename($fileUploaded->getClientOriginalName());
             $message->attach($attachment);
+            $params['letter'] = $fileUploaded->getClientOriginalName();
         }
+        if ($viewType == null) {
+            $viewType = 'emails/becasMovilidad.html.twig';
+        }
+        $message->setBody(
+            $this->renderView(
+                $viewType,
+                $params
+            ),
+            'text/html'
+        );
         return $mailer->send($message);
     }
 
@@ -427,16 +438,17 @@ class DefaultController extends AbstractController
                     if (!file_exists($dirName)) {
                         mkdir($dirName, 0777);
                     }
-                    $file->move($dirName, $inscription->getId(). ' - '.$file->getClientOriginalName());
-                    $inscription->setPayment($dirName.$inscription->getId(). ' - '.$file->getClientOriginalName());
+                    $fileName = $inscription->getId(). '-'.$file->getClientOriginalName();
+                    $file->move($dirName, $fileName);
+                    $inscription->setPayment($dirName.$fileName);
                     $entityManager->persist($inscription);
                     $entityManager->flush();
                     $data = $form->getData();
-                    $this->sendSocioInscripcionEmail($maithParametersService, $mailer, $data);
+                    $this->sendSocioInscripcionEmail($maithParametersService, $mailer, $data, $fileName);
 
                     $message = "Mensaje enviado correctamente";
                     $this->addFlash('success', $message);
-                    return $this->redirectToRoute('site_socios_inscripcion');
+                    //return $this->redirectToRoute('site_socios_inscripcion');
                 }
             } else {
                 $message = "Ocurrio un error al enviar el mail. Parametros incorrectos";
@@ -457,13 +469,19 @@ class DefaultController extends AbstractController
      * @param \App\Entity\SubInscription $subInscription
      * @return int
      */
-    private function sendSocioInscripcionEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubInscription $subInscription)
+    private function sendSocioInscripcionEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubInscription $subInscription, $fileName)
     {
         $email = $subInscription->getEmail();
         $name = $subInscription->getName();
         $document = $subInscription->getIdentity();
         $address = $subInscription->getAddress();
         $suscriptionDate = $subInscription->getStartdate()->format('d/m/y');
+        $sections = [];
+        /** @var SubInscriptionSections $section */
+        foreach ($subInscription->getSections() as $section) {
+            $sections[] = $section->getName();
+        }
+        $level = $subInscription->getLevelAsString();
         $from = [$maithParametersService->getParameter('socios-inscription-email-from') => $maithParametersService->getParameter('socios-inscription-email-from-name')];
         $message = (new \Swift_Message($maithParametersService->getParameter('socios-inscription-email-subject')))
             ->setFrom($from)
@@ -477,13 +495,18 @@ class DefaultController extends AbstractController
                         'document' => $document,
                         'email' => $email,
                         'address' => $address,
-                        'suscriptionDate' => $suscriptionDate
+                        'suscriptionDate' => $suscriptionDate,
+                        'payment' => $fileName,
+                        'sections' => implode(',', $sections),
+                        'level' => $level,
                     ]
                 ),
                 'text/html'
             )
         ;
-
+        $attachment = \Swift_Attachment::fromPath($subInscription->getPayment());
+        $attachment->setFilename($fileName);
+        $message->attach($attachment);
         return $mailer->send($message);
     }
 
@@ -516,12 +539,12 @@ class DefaultController extends AbstractController
                 if (!file_exists($dirName)) {
                     mkdir($dirName, 0777);
                 }
-                $file->move($dirName, $subFee->getId(). ' - '.$file->getClientOriginalName());
-                $subFee->setPayment($dirName.$subFee->getId(). ' - '.$file->getClientOriginalName());
+                $fileName = $subFee->getId(). '-'.$file->getClientOriginalName();
+                $file->move($dirName, $fileName);
+                $subFee->setPayment($dirName.$fileName);
                 $entityManager->persist($subFee);
                 $entityManager->flush();
-                //$this->sendBecaEmail($maithParametersService, $mailer, $data, 'emails/becasMovilidad.html.twig');
-                //$this->sendEmail($maithParametersService, $mailer, $data['name'], $data['subject'], $data['email'], $data['message']);
+                $this->sendSocioCuotaEmail($maithParametersService, $mailer, $subFee, $fileName);
                 $message = "Mensaje enviado correctamente";
                 $this->addFlash('success', $message);
                 return $this->redirectToRoute('site_socios_cuotas');
@@ -541,10 +564,11 @@ class DefaultController extends AbstractController
     /**
      * @param MaithParametersService $maithParametersService
      * @param \Swift_Mailer $mailer
-     * @param \App\Entity\SubInscription $subFee
+     * @param SubFee $subFee
+     * @param $fileName
      * @return int
      */
-    private function sendSocioCuotaEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubFee $subFee)
+    private function sendSocioCuotaEmail(MaithParametersService $maithParametersService, \Swift_Mailer $mailer, \App\Entity\SubFee $subFee, $fileName)
     {
         $email = $subFee->getEmail();
         $name = $subFee->getName();
@@ -560,13 +584,16 @@ class DefaultController extends AbstractController
                     [
                         'name' => $name,
                         'document' => $document,
-                        'email' => $email
+                        'email' => $email,
+                        'comprobante' => $fileName
                     ]
                 ),
                 'text/html'
             )
         ;
-
+        $attachment = \Swift_Attachment::fromPath($subFee->getPayment());
+        $attachment->setFilename($fileName);
+        $message->attach($attachment);
         return $mailer->send($message);
     }
 
