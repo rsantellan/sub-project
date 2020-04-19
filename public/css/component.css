@@ -201,7 +201,6 @@ label strong{
 
 
 .inputfile-6 + label {
-    border: 1px solid #d3394c;
     background-color: #f1e5e6;
     padding: 0;
     height: 50px;
@@ -215,7 +214,7 @@ label strong{
     line-height: 30px;
     font-weight: 400;
     background-color: #ffffff;
-    border: 2px solid #e7eaeb;
+    /*border: 2px solid #e7eaeb;*/
 }
 
 .inputfile-6:focus + label,
@@ -224,20 +223,21 @@ label strong{
     border-color: #9b3725;
 }
 
-.inputfile-6 + label span,
-.inputfile-6 + label strong {
-    padding: 2.2rem 1.25rem;
-    /* 10px 20px */
-}
+
 
 .inputfile-6 + label span {
-    /*width: 100%;*/
+    width: auto !important;
     min-height: 2em;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     vertical-align: top;
+    padding: 1rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-size:16px;
+    color: #919899; 
+    font-weight: 200;
 }
 
 .inputfile-6 + label strong {
@@ -247,6 +247,8 @@ label strong{
     background-color: #ec5c42;
     /*display: inline-block;*/
     display: inline;
+     padding: 2.2rem 1.25rem;
+
 }
 .inputfile-6 + label strong span{
     color: #FFF;
@@ -255,6 +257,7 @@ label strong{
     line-height: 43px;
     text-align: left;
     padding-left: 0;
+    font-weight: 400;
 
 }
 

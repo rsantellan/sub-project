@@ -13447,7 +13447,7 @@ widget_pages
 	display: none;
 }
 .contact-form label.for-ok[for] {
-	display: inherit;
+	display: inline-block;
 	}
 
 .contact-form-message textarea {

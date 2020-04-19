@@ -101,3 +101,11 @@ h4 span{
 	left: 30px;
 	top: 12px;
 }
+label.label-file{
+	display: inline !important;
+	float: left;
+}
+input.files{
+	background: #ec5c42;
+	color: #fff;
+}
