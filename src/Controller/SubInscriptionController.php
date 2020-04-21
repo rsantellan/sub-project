@@ -61,8 +61,8 @@ class SubInscriptionController extends AbstractController
         $sheet->setCellValueByColumnAndRow(6, $position, 'Nivel');
         $sheet->setCellValueByColumnAndRow(7, $position, 'Fecha');
         $sheet->setCellValueByColumnAndRow(8, $position, 'Secciones');
-        $sheet->setCellValueByColumnAndRow(9, $position, 'Aprovado');
-        $sheet->setCellValueByColumnAndRow(10, $position, 'Lugar donde esta el archivo');
+        $sheet->setCellValueByColumnAndRow(9, $position, 'Aprobado');
+        $sheet->setCellValueByColumnAndRow(10, $position, 'Nombre del archivo');
         $position++;
         /** @var SubInscription $subInscription */
         foreach ($subInscriptionRepository->findAll() as $subInscription) {

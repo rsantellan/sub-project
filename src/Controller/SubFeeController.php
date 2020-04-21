@@ -129,8 +129,8 @@ class SubFeeController extends AbstractController
         $sheet->setCellValueByColumnAndRow(2, $position, 'Nombre');
         $sheet->setCellValueByColumnAndRow(3, $position, 'Cedula');
         $sheet->setCellValueByColumnAndRow(4, $position, 'Email');
-        $sheet->setCellValueByColumnAndRow(5, $position, 'Aprovado');
-        $sheet->setCellValueByColumnAndRow(6, $position, 'Lugar donde esta el archivo');
+        $sheet->setCellValueByColumnAndRow(5, $position, 'Aprobado');
+        $sheet->setCellValueByColumnAndRow(6, $position, 'Nombre del archivo');
         $position++;
         /** @var SubFee $subFee */
         foreach ($subFeeRepository->findAll() as $subFee) {

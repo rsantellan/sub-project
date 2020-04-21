@@ -18,7 +18,7 @@
                         <th>Nivel</th>
                         <th>Fecha</th>
                         <th>Secciones</th>
-                        <th>Aprovado</th>
+                        <th>Aprobado</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -42,12 +42,12 @@
                             <td>{{ sub_inscription.approved ? 'Si' : 'No' }}</td>
                             <td>
                                 <a href="{{ path('sub_inscription_show', {'id': sub_inscription.id}) }}"
-                                   class="btn btn-info">Mostrar</a>
+                                   class="btn btn-info">Ver</a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="9">no records found</td>
+                            <td colspan="9">No hay registros</td>
                         </tr>
                     {% endfor %}
                     </tbody>

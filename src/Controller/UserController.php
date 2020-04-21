@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\UserType;
+use App\Repository\RoleRepository;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,14 +20,21 @@ class UserController extends AbstractController
      * @Route("/", defaults={"page": "1"}, name="admin_user_index", methods={"GET"})
      * @Route("/index/{page<[1-9]\d*>}", methods={"GET"}, name="admin_user_index_paginate")
      * @param UserRepository $userRepository
+     * @param RoleRepository $roleRepository
      * @param int $page
      * @return Response
      */
-    public function index(UserRepository $userRepository, int $page) : Response
+    public function index(UserRepository $userRepository, RoleRepository $roleRepository, int $page) : Response
     {
+        $roles = $roleRepository->findAll();
+        $roleList = ['ADMIN' => 'Super Admin'];
+        foreach ($roles as $role) {
+            $roleList[$role->getRole()] = $role->getDescription();
+        }
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findLatest($page, 20),
             'activemenu' => 'users',
+            'roleList' => $roleList
         ]);
     }
 
