@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2020-04-20T15:50:26Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2020-05-15T06:12:54Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -11,30 +11,112 @@
         <target>Asunto</target>
         <jms:reference-file line="30">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="1b920d582307cd603ae2241fee8ecae6bb4d6bb8" resname="CV resumido">
+        <source>CV resumido</source>
+        <target state="new">CV resumido</target>
+        <jms:reference-file line="52">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="daebbbe9540e7a2ffe2c14f5788d9077ea1265c0" resname="Carta aval orientador">
+        <source>Carta aval orientador</source>
+        <target state="new">Carta aval orientador</target>
+        <jms:reference-file line="62">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bd639a3164f5c0d06f5136b61fdcdb0b23ee99c5" resname="Carta intención  (breve descripción del proyecto y avances, descripción de la actividad a ser financiada y  sus beneficios para el proyecto. Máximo 1000 palabras)">
+        <source>Carta intención  (breve descripción del proyecto y avances, descripción de la actividad a ser financiada y  sus beneficios para el proyecto. Máximo 1000 palabras)</source>
+        <target state="new">Carta intención  (breve descripción del proyecto y avances, descripción de la actividad a ser financiada y  sus beneficios para el proyecto. Máximo 1000 palabras)</target>
+        <jms:reference-file line="67">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b01f15c5732645bd638b57de8777bda2e92a7aeb" resname="Comisión">
+        <source>Comisión</source>
+        <target state="new">Comisión</target>
+        <jms:reference-file line="24">/../../../../../../.././src/Form/SubAuthorityType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e3bc820373805e5078213b64074363cbdb9b812c" resname="Cédula de Indentidad">
+        <source>Cédula de Indentidad</source>
+        <target state="new">Cédula de Indentidad</target>
+        <jms:reference-file line="27">/../../../../../../.././src/Form/SubFeeType.php</jms:reference-file>
+        <jms:reference-file line="29">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6e8c0982e6a737eb5f29d49f2c28e70a88439128" resname="Dirección Personal">
+        <source>Dirección Personal</source>
+        <target state="new">Dirección Personal</target>
+        <jms:reference-file line="34">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
         <source>Email</source>
         <target>Email</target>
+        <jms:reference-file line="31">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
         <jms:reference-file line="35">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
+        <jms:reference-file line="32">/../../../../../../.././src/Form/SubFeeType.php</jms:reference-file>
+        <jms:reference-file line="39">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="319be6ac65be323860bf1be71949a896e0462583" resname="Escolaridad de Posgrado">
+        <source>Escolaridad de Posgrado</source>
+        <target state="new">Escolaridad de Posgrado</target>
+        <jms:reference-file line="57">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bcc476092dcf939d7a85ca79d76ff9e48d5597f3" resname="Fecha">
+        <source>Fecha</source>
+        <target state="new">Fecha</target>
+        <jms:reference-file line="51">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="15abcf2afac8b50b9107f02374ffff06ff59feef" resname="Imagen Superior">
         <source>Imagen Superior</source>
         <target>Imagen Superior</target>
-        <jms:reference-file line="29">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
+        <jms:reference-file line="32">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="06c9a38f25f2abc7b9d313ded6a76273767194db" resname="Imagen lateral">
         <source>Imagen lateral</source>
         <target>Imagen lateral</target>
-        <jms:reference-file line="30">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
+        <jms:reference-file line="33">/../../../../../../.././src/Form/NewsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c342a804db9a493193cf6bd53276bbc18a5c9798" resname="Institución">
+        <source>Institución</source>
+        <target state="new">Institución</target>
+        <jms:reference-file line="42">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="eb9e23efc494419b95a234a8b6ce184409f8b3ac" resname="Mensaje">
         <source>Mensaje</source>
         <target>Mensaje</target>
         <jms:reference-file line="41">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
+      <trans-unit id="3729ae8bbbc5d6e8c2d1ef05c53258abf52c1e6a" resname="Nombre Completo">
+        <source>Nombre Completo</source>
+        <target state="new">Nombre Completo</target>
+        <jms:reference-file line="25">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+        <jms:reference-file line="21">/../../../../../../.././src/Form/SubFeeType.php</jms:reference-file>
+        <jms:reference-file line="23">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="e9ccf920fbd4b652654eef53ef5136ff3609e2af" resname="Nombre y Apellido">
         <source>Nombre y Apellido</source>
         <target>Nombre y Apellido</target>
         <jms:reference-file line="24">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f16a54d7a95dacfede481116349d7c12b3972aed" resname="Programa de Posgrado">
+        <source>Programa de Posgrado</source>
+        <target state="new">Programa de Posgrado</target>
+        <jms:reference-file line="47">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a2676cbff0025893fb9e7b3a10f813ecfae9c3d" resname="Suplente">
+        <source>Suplente</source>
+        <target state="new">Suplente</target>
+        <jms:reference-file line="23">/../../../../../../.././src/Form/SubAuthorityType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d5c953fe8648cff17c48bf6b9c2e0cf5a4cf3167" resname="Talón de pago">
+        <source>Talón de pago</source>
+        <target state="new">Talón de pago</target>
+        <jms:reference-file line="38">/../../../../../../.././src/Form/SubFeeType.php</jms:reference-file>
+        <jms:reference-file line="53">/../../../../../../.././src/Form/SubInscriptionType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="708f2d0f04985e9c0cecd9f6623bbff17712320d" resname="Teléfono/Celular">
+        <source>Teléfono/Celular</source>
+        <target state="new">Teléfono/Celular</target>
+        <jms:reference-file line="37">/../../../../../../.././src/Form/BecaMovilidadType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dfe24ff0d930c485e0188cce7b1c6c3dca5bd11e" resname="Titular">
+        <source>Titular</source>
+        <target state="new">Titular</target>
+        <jms:reference-file line="22">/../../../../../../.././src/Form/SubAuthorityType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0db222a6f7d4f7e844457d9de2a791f18f8e11ac" resname="autoridades.actas.texto">
         <source>autoridades.actas.texto</source>
@@ -165,6 +247,44 @@
         <source>contact.ubicacion</source>
         <target><![CDATA[Instituto de Inv. Biológicas Clemente Estable<br/>Avenida Italia 3318, CP 11600</br>Montevideo]]></target>
         <jms:reference-file line="25">/../../../../../../.././templates/default/contact.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a1cbc139a5a5c9e9383c43920f31fb50fa330d41" resname="footer.centro_derecha">
+        <source>footer.centro_derecha</source>
+        <target><![CDATA[<div class="media">
+                        <div class="media-left rightpadding_10"> <i class="fa fa-envelope highlight" aria-hidden="true"></i> </div>
+                        <div class="media-body"><a href="mailto:secretariasub@fcien.edu.uy" class="a-footer">secretariasub@fcien.edu.uy </a></div>
+                    </div>]]></target>
+        <jms:reference-file line="28">/../../../../../../.././templates/default/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f3a08d9948d2f0970c849095df7fa645772e7841" resname="footer.centro_izquierda">
+        <source>footer.centro_izquierda</source>
+        <target><![CDATA[<div class="media">
+                        <div class="media-left rightpadding_10"> <i class="fa fa-map-marker highlight" aria-hidden="true"></i> </div>
+                        <div class="media-body"> Avenida Italia 3318, CP 116000</div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body" style="color:#ec5c42;">Instituto de Inv. Biológicas Clemente Estable</div>
+                    </div>]]></target>
+        <jms:reference-file line="16">/../../../../../../.././templates/default/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5ce628e56f13182de343006636707c3af5b50f81" resname="footer.derecha">
+        <source>footer.derecha</source>
+        <target><![CDATA[<div class="widget widget_instagram topmargin_80">
+                    <div class="media">
+                        <div class="media-left rightpadding_10"> <i class="fa fa-phone highlight" aria-hidden="true"></i> </div>
+                        <div class="media-body"> +598 98 341 461</div>
+                    </div>
+                </div>]]></target>
+        <jms:reference-file line="36">/../../../../../../.././templates/default/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="23c2ab423cd4b2ae7be4606396ea2f5d1b3d01cc" resname="footer.izquierda">
+        <source>footer.izquierda</source>
+        <target><![CDATA[<a href="/index.php/" class="logo vertical_logo bottommargin_20">
+                        <img src="/images/logo-light.png?v1" alt="">
+                    </a>
+                    <p>La Sociedad Uruguaya de Biociencias es una asociación civil sin fines de lucro, con personería jurídica, y que tiene su sede en Montevideo, Uruguay.</p>
+                    <p class="darklinks"> <a class="social-icon soc-facebook" href="#" title="Facebook"></a> <a class="social-icon soc-twitter" href="#" title="Twitter"></a> <a class="social-icon soc-google" href="#" title="Twitter"></a> <a class="social-icon soc-linkedin" href="#" title="Twitter"></a></p>]]></target>
+        <jms:reference-file line="6">/../../../../../../.././templates/default/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4e343563821ff930834ab2260df6039d2a79569a" resname="home.autoridades.texto">
         <source>home.autoridades.texto</source>
@@ -377,7 +497,7 @@ Adem&aacute;s de las conferencias plenarias y actividades transversales entre se
             <p><strong>NUEVOS SOCIOS:</strong> Para asociarse a la SUB se deberán seguir las instrucciones descritas <a href="socios-inscripcion.php" target="_blank">aquí</a></p>
             <p>El pago de <strong>anualidades atrasadas</strong> se realiza en <strong>PESOS URUGUAYOS al costo de 2019</strong>.</p>
             <p>El pago de las anualidades debe realizarse en la cuenta BROU Caja de Ahorro en Pesos Uruguayos: 001568858-00001 (número de cuenta en formato anterior del BROU: 191-0343382).</p>]]></target>
-        <jms:reference-file line="89">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
+        <jms:reference-file line="88">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="335a08e44d86445e5c7db4322fa5300cf7255972" resname="socios.cuota.tabla">
         <source>socios.cuota.tabla</source>
@@ -406,7 +526,7 @@ Adem&aacute;s de las conferencias plenarias y actividades transversales entre se
                             </tbody>
                         </table>
                     </div>]]></target>
-        <jms:reference-file line="86">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/../../../../../../.././templates/default/sociosCuotas.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2d6e7f7f593a45ee01507261231e2c67ae31df1a" resname="socios.cuota.titulo">
         <source>socios.cuota.titulo</source>
