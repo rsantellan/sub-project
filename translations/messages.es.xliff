@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2020-03-12T22:06:55Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2020-04-20T15:50:26Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -8,12 +8,12 @@
     <body>
       <trans-unit id="72d7a5b1c4a26548929a12760e8644bc613332a2" resname="Asunto">
         <source>Asunto</source>
-        <target>Contacto</target>
+        <target>Asunto</target>
         <jms:reference-file line="30">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
         <source>Email</source>
-        <target>Email.</target>
+        <target>Email</target>
         <jms:reference-file line="35">/../../../../../../.././src/Form/ContactType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="15abcf2afac8b50b9107f02374ffff06ff59feef" resname="Imagen Superior">
@@ -198,7 +198,7 @@
       </trans-unit>
       <trans-unit id="1c38f955ba7aacab7613dd26eb680803c34d915c" resname="home.congreso.image">
         <source>home.congreso.image</source>
-        <target><![CDATA[ <img src="http://sub.rodrigosantellan.com/images/congreso/thumb-home.jpg?v1" alt="" class="rounded"> ]]></target>
+        <target><![CDATA[<img alt="" src="http://sub.rodrigosantellan.com/index.php/im/YTo1OntzOjE6InAiO3M6NDQ6Ii9zcmMvLi4vd2ViL3d5c3d5Zy9wcnVlYmEvNWU3MjI1MTcyYjVkYi5qcGVnIjtzOjE6InciO2k6MTE3MDtzOjE6ImgiO2k6NzgwO3M6MToidCI7czowOiIiO3M6MToiciI7aToxO30=" />]]></target>
         <jms:reference-file line="53">/../../../../../../.././templates/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c426c4a1a0d6dda7eb4480909f895be2e3496b40" resname="home.congreso.link">
@@ -320,7 +320,7 @@ Adem&aacute;s de las conferencias plenarias y actividades transversales entre se
 
 <h4>Estatutos</h4>
 
-<p>Descargue los estatutos de la Sociedad en pdf <a href="https://docs.google.com/a/fcien.edu.uy/viewer?a=v&amp;pid=sites&amp;srcid=ZmNpZW4uZWR1LnV5fHN1YnxneDo2MTFlMmZkMmVmZDZkMGEz" target="blank">aqu&iacute;</a>.</p>
+<p>Descargue los estatutos de la Sociedad en pdf <a href="http://sub.rodrigosantellan.com/index.php/public/maith/download/YToyOntzOjY6ImZvbGRlciI7czo2OiJwcnVlYmEiO3M6NDoiZmlsZSI7czoxNzoiNWU3YTU2ODNkZmRiYi5wZGYiO30=" target="blank">aqu&iacute;</a>.</p>
 ]]></target>
         <jms:reference-file line="18">/../../../../../../.././templates/default/whoWeAre.html.twig</jms:reference-file>
       </trans-unit>
