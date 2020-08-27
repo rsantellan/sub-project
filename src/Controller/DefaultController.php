@@ -15,6 +15,7 @@ use App\Repository\SubSectionsRepository;
 use Maith\Common\AdminBundle\Services\MaithParametersService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\NewsRepository;
 use Maith\Common\AdminBundle\Repository\mAlbumRepository;
@@ -234,7 +235,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/becas.html", name="site_becas")
+     * @Route("/becas-congresos.html", name="site_becas")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function becas()
@@ -347,25 +348,19 @@ class DefaultController extends AbstractController
         ;
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
         foreach($data['cv'] as $fileUploaded) {
-            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
-            $attachment->setFilename($fileUploaded->getClientOriginalName());
-            $message->attach($attachment);
+            $message->attach($this->createAttachmentFromUploadedFile($fileUploaded));
             $params['cv'] = $fileUploaded->getClientOriginalName();
         }
 
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
         foreach($data['scholarship'] as $fileUploaded) {
-            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
-            $attachment->setFilename($fileUploaded->getClientOriginalName());
-            $message->attach($attachment);
+            $message->attach($this->createAttachmentFromUploadedFile($fileUploaded));
             $params['scholarship'] = $fileUploaded->getClientOriginalName();
         }
 
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $fileUploaded */
         foreach($data['letter'] as $fileUploaded) {
-            $attachment = \Swift_Attachment::fromPath($fileUploaded->getPath());
-            $attachment->setFilename($fileUploaded->getClientOriginalName());
-            $message->attach($attachment);
+            $message->attach($this->createAttachmentFromUploadedFile($fileUploaded));
             $params['letter'] = $fileUploaded->getClientOriginalName();
         }
         if ($viewType == null) {
@@ -379,6 +374,23 @@ class DefaultController extends AbstractController
             'text/html'
         );
         return $mailer->send($message);
+    }
+
+    /**
+     * @param UploadedFile $file
+     * @return \Swift_Attachment
+     */
+    private function createAttachmentFromUploadedFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file)
+    {
+        $projectDir = $this->parameterBag->get('kernel.project_dir');
+        $dirName = $projectDir.DIRECTORY_SEPARATOR.'becas'.DIRECTORY_SEPARATOR;
+        if (!file_exists($dirName)) {
+            mkdir($dirName, 0777);
+        }
+        $movedFile = $file->move($dirName, $file->getBasename());
+        $attachment = \Swift_Attachment::fromPath($movedFile->getRealPath());
+        $attachment->setFilename($file->getClientOriginalName());
+        return $attachment;
     }
 
     /**
@@ -429,6 +441,7 @@ class DefaultController extends AbstractController
                 if ($inscription->getSections()->count() > 2) {
                     $message = "Solo se pueden elegir dos secciones";
                 } else {
+                    /** @var UploadedFile $file */
                     $file = $form->get('payment')->getData();
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($inscription);
@@ -438,7 +451,7 @@ class DefaultController extends AbstractController
                     if (!file_exists($dirName)) {
                         mkdir($dirName, 0777);
                     }
-                    $fileName = $inscription->getId(). '-'.$file->getClientOriginalName();
+                    $fileName = md5($inscription->getId().'-'.$file->getClientOriginalName()).'.'.$file->getExtension();
                     $file->move($dirName, $fileName);
                     $inscription->setPayment($dirName.$fileName);
                     $entityManager->persist($inscription);
@@ -539,7 +552,8 @@ class DefaultController extends AbstractController
                 if (!file_exists($dirName)) {
                     mkdir($dirName, 0777);
                 }
-                $fileName = $subFee->getId(). '-'.$file->getClientOriginalName();
+                //$fileName = $subFee->getId(). '-'.$file->getClientOriginalName();
+                $fileName = md5($subFee->getId().'-'.$file->getClientOriginalName()).'.'.$file->getExtension();
                 $file->move($dirName, $fileName);
                 $subFee->setPayment($dirName.$fileName);
                 $entityManager->persist($subFee);
